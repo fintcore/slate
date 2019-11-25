@@ -82,7 +82,7 @@ api.kittens.get()
 ``` -->
 
 ```shell
-curl "http://example.com/api/kittens"
+curl "https://api.enovabancorp.com/v1/accounts"
   -H "Authorization: meowmeowmeow"
 ```
 
@@ -96,40 +96,39 @@ let kittens = api.kittens.get();
 > The above command returns JSON structured like this:
 
 ```json
-[
   {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
+    "id": 439,
+    "tipo": "debito",
+    "cuenta": 452,
+    "moneda": 1,
+    "referencia": "ae3d2531-ac31-406b-86dc-a0d6171c27gt",
+    "limites": {},
+    "hash": null,
+    "ultimo_hash": null
   }
-]
 ```
 
-This endpoint retrieves all kittens.
+This endpoint create accounts
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`POST https://api.enovabancorp.com/v1/accounts`
 
 ### Query Parameters
 
 Parameter | Default | Description
 --------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+group | false | If set to true, the result will also include cats.
+currency | true | If set to false, the result will include kittens that have already been adopted.
+product | true | 
+person | true |
+reference | true |
+name | true |
+extras | optional |
 
-<aside class="success">
+<!-- <aside class="success">
 Remember — a happy kitten is an authenticated kitten!
-</aside>
+</aside> -->
 
 ## Get All Accounts
 
@@ -148,7 +147,7 @@ api.kittens.get()
 ```
 
 ```shell
-curl "http://example.com/api/kittens"
+curl "https://api.enovabancorp.com/v1/accounts"
   -H "Authorization: meowmeowmeow"
 ```
 
@@ -164,40 +163,55 @@ let kittens = api.kittens.get();
 ```json
 [
   {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
+    "id": 438,
+    "tipo": "debito",
+    "cuenta": 451,
+    "moneda": 1,
+    "referencia": "STOREID_1453",
+    "limites": {},
+    "hash": null,
+    "ultimo_hash": null,
+    "saldo_disponible": 0.01,
+    "grupo": 2,
+    "extras": {
+        "nombre": "Condominio"
+    }
   },
   {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
+    "id": 178,
+    "tipo": "debito",
+    "cuenta": 165,
+    "moneda": 1,
+    "referencia": "1-002",
+    "limites": null,
+    "hash": "",
+    "ultimo_hash": null,
+    "saldo_disponible": 0,
+    "grupo": 3,
+    "extras": {
+        "nombre": "Condominio Pantitlan"
+    }
   }
 ]
 ```
 
-This endpoint retrieves all kittens.
+This endpoint retrieves all accounts.
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`GET https://api.enovabancorp.com/v1/accounts`
 
 ### Query Parameters
 
 Parameter | Default | Description
 --------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+group | ooptional | 
 
-<aside class="success">
+<!-- <aside class="success">
 Remember — a happy kitten is an authenticated kitten!
-</aside>
+</aside> -->
 
-## Get a Specific Kitten
+## Get a Specific Account
 
 ```ruby
 require 'kittn'
@@ -214,7 +228,7 @@ api.kittens.get(2)
 ```
 
 ```shell
-curl "http://example.com/api/kittens/2"
+curl "https://api.enovabancorp.com/v1/accounts/178"
   -H "Authorization: meowmeowmeow"
 ```
 
@@ -229,29 +243,37 @@ let max = api.kittens.get(2);
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "id": 178,
+  "tipo": "debito",
+  "cuenta": 165,
+  "moneda": 1,
+  "referencia": "1-002",
+  "limites": null,
+  "hash": "",
+  "ultimo_hash": null,
+  "saldo_disponible": 0,
+  "grupo": 3,
+  "extras": {
+      "nombre": "Condominio Pantitlan"
+  }
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint retrieves a specific account.
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+<!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`GET https://api.enovabancorp.com/v1/accounts/<ID>`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to retrieve
+ID | The ID of the account to retrieve
 
-## Delete a Specific Kitten
+## Delete a Specific Account
 
 ```ruby
 require 'kittn'
@@ -268,7 +290,7 @@ api.kittens.delete(2)
 ```
 
 ```shell
-curl "http://example.com/api/kittens/2"
+curl "https://api.enovabancorp.com/v1/accounts/2"
   -X DELETE
   -H "Authorization: meowmeowmeow"
 ```
@@ -289,11 +311,11 @@ let max = api.kittens.delete(2);
 }
 ```
 
-This endpoint deletes a specific kitten.
+This endpoint deletes a specific account.
 
 ### HTTP Request
 
-`DELETE http://example.com/kittens/<ID>`
+`DELETE https://api.enovabancorp.com/v1/accounts/<ID>`
 
 ### URL Parameters
 
