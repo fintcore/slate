@@ -234,9 +234,6 @@
                   <li>
                     <a href="#types-of-products" class="toc-h2 toc-link" data-title="Types of Products">Types of Products</a>
                   </li>
-                  <li>
-                    <a href="#types-of-email" class="toc-h2 toc-link" data-title="Types of Email">Types of Email</a>
-                  </li>
               </ul>
           </li>
           <li>
@@ -246,7 +243,7 @@
                     <a href="#catalog-of-type-of-client" class="toc-h2 toc-link" data-title="Catalog of Type of Client">Catalog of Type of Client</a>
                   </li>
                   <li>
-                    <a href="#catalog-of-type-of-product" class="toc-h2 toc-link" data-title="Catalog of Type of Product">Catalog of Type of Product</a>
+                    <a href="#catalog-of-product-templates" class="toc-h2 toc-link" data-title="Catalog of product templates">Catalog of product templates</a>
                   </li>
               </ul>
           </li>
@@ -360,7 +357,11 @@
 <span class="p">);</span>
 <span class="nx">postman</span><span class="p">.</span><span class="nx">setEnvironmentVariable</span><span class="p">(</span><span class="s2">"hmac_d"</span><span class="p">,</span> <span class="nx">_requestData</span><span class="p">);</span>
 </code></pre><h1 id='types'>Types</h1><h2 id='types-of-clients'>Types of Clients</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.dynamicore.io/v1/clients/types"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
+  -H <span class="s2">"accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="nv">name</span><span class="o">=</span><span class="s2">"Persona Fisica"</span> <span class="se">\</span>
+  -d <span class="nv">description</span><span class="o">=</span><span class="s2">"Template para registro de personas fisicas en SOFOM"</span> <span class="se">\</span>
+  -d <span class="s2">"template[0][]"</span><span class="o">=</span><span class="s2">"Lopez"</span> <span class="se">\</span>
 </code></pre>
 <blockquote>
 <p>RESPONSE:</p>
@@ -374,55 +375,44 @@
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint create accounts</p>
+<p>This endpoint is used to create client types</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://api.dynamicore.io/v1/clients/types</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<p><code>POST https://api.dynamicore.io/v1/clients/types</code></p>
+<h3 id='parameters'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
+<th>Required</th>
+<th>Type</th>
 <th>Description</th>
+<th>Example</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>group</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>currency</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-<tr>
-<td>product</td>
-<td>true</td>
-<td></td>
-</tr>
-<tr>
-<td>person</td>
-<td>true</td>
-<td></td>
-</tr>
-<tr>
-<td>reference</td>
-<td>true</td>
-<td></td>
-</tr>
-<tr>
 <td>name</td>
-<td>true</td>
-<td></td>
+<td>Y</td>
+<td>String</td>
+<td>Name of client type</td>
+<td>Persona Fisica</td>
 </tr>
 <tr>
-<td>extras</td>
-<td>optional</td>
-<td></td>
+<td>description</td>
+<td>O</td>
+<td>String</td>
+<td>Description of client type</td>
+<td>Template para registro de personas fisicas en SOFOM</td>
+</tr>
+<tr>
+<td>pii[lastname]</td>
+<td>Y</td>
+<td>String</td>
+<td>Lastname of client</td>
+<td>Lopez</td>
 </tr>
 </tbody></table>
 <h2 id='types-of-products'>Types of Products</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.dynamicore.io/v1/products/types"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
+  -H <span class="s2">"accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
 </code></pre>
 <blockquote>
 <p>RESPONSE:</p>
@@ -436,115 +426,113 @@
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all accounts.</p>
+<p>This endpoint is used to create product types</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET https://api.dynamicore.io/v1/products/types</code></p>
-<h3 id='query-parameters-2'>Query Parameters</h3>
+<p><code>POST https://api.dynamicore.io/v1/products/types</code></p>
+<h3 id='parameters-2'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
+<th>Required</th>
+<th>Type</th>
 <th>Description</th>
+<th>Example</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>group</td>
-<td>ooptional</td>
-<td></td>
+<td>name</td>
+<td>Y</td>
+<td>String</td>
+<td>Name of product type</td>
+<td>Persona Fisica</td>
+</tr>
+<tr>
+<td>description</td>
+<td>O</td>
+<td>String</td>
+<td>Description of product type</td>
+<td>Template para registro de personas fisicas en SOFOM</td>
+</tr>
+<tr>
+<td>pii[lastname]</td>
+<td>Y</td>
+<td>String</td>
+<td>Lastname of client</td>
+<td>Lopez</td>
 </tr>
 </tbody></table>
-<h2 id='types-of-email'>Types of Email</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.dynamicore.io/v1/emails/types"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
-<blockquote>
-<p>RESPONSE:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves a specific account.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET https://api.dynamicore.io/v1/emails/types</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the account to retrieve</td>
-</tr>
-</tbody></table>
-<h1 id='catalogs'>Catalogs</h1><h2 id='catalog-of-type-of-client'>Catalog of Type of Client</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.dynamicore.io/v1/catalog/fields/client"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
-<blockquote>
-<p>RESPONSE:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves a specific account.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
-<p><code>GET https://api.dynamicore.io/v1/catalog/fields/client</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the account to retrieve</td>
-</tr>
-</tbody></table>
-<h2 id='catalog-of-type-of-product'>Catalog of Type of Product</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.dynamicore.io/v1/catalog/fields/product"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
-<blockquote>
-<p>RESPONSE:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves a specific account.</p>
 
-<!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
-<h3 id='http-request-5'>HTTP Request</h3>
+<!--## Types of Email
+
+```shell
+curl "https://api.dynamicore.io/v1/emails/types"
+  -H "accept: application/json" \
+  -H "Content-Type: application/json" \
+```
+
+> RESPONSE:
+
+```json
+{
+  "status": "success",
+  "message": {
+    "code": 1,
+    "total": 0,
+    "data": []
+  }
+}
+```
+
+This endpoint retrieves a specific account.
+
+### HTTP Request
+
+`GET https://api.dynamicore.io/v1/emails/types`
+
+### URL Parameters
+
+| Parameter | Description                       |
+| --------- | --------------------------------- |
+| ID        | The ID of the account to retrieve |
+-->
+<h1 id='catalogs'>Catalogs</h1><h2 id='catalog-of-type-of-client'>Catalog of Type of Client</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.dynamicore.io/v1/catalog/fields/client"</span>
+  -H <span class="s2">"accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+</code></pre>
+<blockquote>
+<p>RESPONSE:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a catalog of client templates.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET https://api.dynamicore.io/v1/catalog/fields/client</code></p>
+<h2 id='catalog-of-product-templates'>Catalog of product templates</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.dynamicore.io/v1/catalog/fields/product"</span>
+  -H <span class="s2">"accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+</code></pre>
+<blockquote>
+<p>RESPONSE:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a catalog of product templates.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET https://api.dynamicore.io/v1/catalog/fields/product</code></p>
-<h3 id='url-parameters-3'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the account to retrieve</td>
-</tr>
-</tbody></table>
 <h1 id='clients'>Clients</h1><h2 id='create-client'>Create Client</h2><pre class="highlight shell tab-shell"><code>curl https://api.dynamicore.io/v1/clients <span class="se">\</span>
   -H <span class="s2">"accept: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
@@ -567,9 +555,9 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint is used to create client.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>POST https://api.dynamicore.io/v1/clients</code></p>
-<h3 id='url-parameters-4'>URL Parameters</h3>
+<h3 id='parameters-3'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -637,9 +625,9 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint is used to update client.</p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>PUT https://api.dynamicore.io/v1/clients</code></p>
-<h3 id='url-parameters-5'>URL Parameters</h3>
+<h3 id='uparameters'>UParameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -703,9 +691,9 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint is used to list of clients.</p>
-<h3 id='http-request-8'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>GET https://api.dynamicore.io/v1/clients</code></p>
-<h3 id='url-parameters-6'>URL Parameters</h3>
+<h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -741,7 +729,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint is used to get SAT data.</p>
-<h3 id='http-request-9'>HTTP Request</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
 <p><code>GET https://api.dynamicore.io/v1/clients/:client_id/sat</code></p>
 <h2 id='get-credit-score'>Get Credit Score</h2><pre class="highlight shell tab-shell"><code>curl https://api.dynamicore.io/v1/clients/:client_id/score <span class="se">\</span>
   -H <span class="s2">"accept: application/json"</span> <span class="se">\</span>
@@ -760,7 +748,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint is used to get Credit Score.</p>
-<h3 id='http-request-10'>HTTP Request</h3>
+<h3 id='http-request-9'>HTTP Request</h3>
 <p><code>GET https://api.dynamicore.io/v1/clients/:client_id/score</code></p>
 <h1 id='accounts'>Accounts</h1><h2 id='create-account'>Create Account</h2><pre class="highlight shell tab-shell"><code>curl https://api.dynamicore.io/v1/accounts <span class="se">\</span>
   -H <span class="s2">"accept: application/json"</span> <span class="se">\</span>
@@ -783,9 +771,9 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint is used to create account.</p>
-<h3 id='http-request-11'>HTTP Request</h3>
+<h3 id='http-request-10'>HTTP Request</h3>
 <p><code>POST https://api.dynamicore.io/v1/accounts</code></p>
-<h3 id='url-parameters-7'>URL Parameters</h3>
+<h3 id='parameters-4'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -843,9 +831,9 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint is used to customer accounts.</p>
-<h3 id='http-request-12'>HTTP Request</h3>
+<h3 id='http-request-11'>HTTP Request</h3>
 <p><code>GET https://api.dynamicore.io/v1/accounts</code></p>
-<h3 id='url-parameters-8'>URL Parameters</h3>
+<h3 id='query-parameters-2'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -887,7 +875,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint is used to get account transactions.</p>
-<h3 id='http-request-13'>HTTP Request</h3>
+<h3 id='http-request-12'>HTTP Request</h3>
 <p><code>GET https://api.dynamicore.io/v1/accounts/:account_id/transactions</code></p>
 <h2 id='account-payments'>Account payments</h2><pre class="highlight shell tab-shell"><code>curl https://api.dynamicore.io/v1/accounts/:account_id/payments <span class="se">\</span>
   -H <span class="s2">"accept: application/json"</span> <span class="se">\</span>
@@ -906,7 +894,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint is used to get account payments.</p>
-<h3 id='http-request-14'>HTTP Request</h3>
+<h3 id='http-request-13'>HTTP Request</h3>
 <p><code>GET https://api.dynamicore.io/v1/accounts/:account_id/payments</code></p>
 <h1 id='errors'>Errors</h1>
 <aside class="notice">
