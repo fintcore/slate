@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API FintCore</title>
+    <title>API DynamiCore</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -196,7 +196,7 @@
   color: #f92672;
 }
     </style>
-    <link href="stylesheets/screen-a404ff5a.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/screen-2fccbe9a.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print-bccf8c07.css" rel="stylesheet" media="print" />
       <script src="javascripts/all-c5541673.js"></script>
   </head>
@@ -209,7 +209,7 @@
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="https://enovabancorp.s3-us-west-2.amazonaws.com/logos/Enova+Logo.png" class="logo" alt="Enova+logo" />
+      <img src="images/logo-bcfbcf05.png" class="logo" alt="Logo" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
               <a href="#" data-language-name="javascript">javascript</a>
@@ -254,7 +254,36 @@
             <a href="#clients" class="toc-h1 toc-link" data-title="Clients">Clients</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#catalog-of-type-of-client-2" class="toc-h2 toc-link" data-title="Catalog of Type of Client">Catalog of Type of Client</a>
+                    <a href="#create-client" class="toc-h2 toc-link" data-title="Create Client">Create Client</a>
+                  </li>
+                  <li>
+                    <a href="#update-client" class="toc-h2 toc-link" data-title="Update Client">Update Client</a>
+                  </li>
+                  <li>
+                    <a href="#list-of-clients" class="toc-h2 toc-link" data-title="List of Clients">List of Clients</a>
+                  </li>
+                  <li>
+                    <a href="#get-sat" class="toc-h2 toc-link" data-title="Get SAT">Get SAT</a>
+                  </li>
+                  <li>
+                    <a href="#get-credit-score" class="toc-h2 toc-link" data-title="Get Credit Score">Get Credit Score</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#accounts" class="toc-h1 toc-link" data-title="Accounts">Accounts</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-account" class="toc-h2 toc-link" data-title="Create Account">Create Account</a>
+                  </li>
+                  <li>
+                    <a href="#customer-accounts" class="toc-h2 toc-link" data-title="Customer accounts">Customer accounts</a>
+                  </li>
+                  <li>
+                    <a href="#account-transactions" class="toc-h2 toc-link" data-title="Account transactions">Account transactions</a>
+                  </li>
+                  <li>
+                    <a href="#account-payments" class="toc-h2 toc-link" data-title="Account payments">Account payments</a>
                   </li>
               </ul>
           </li>
@@ -267,54 +296,70 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the FintCore API! You can use our API to access FintCore API endpoints, which can get information on various accounts in our database.</p>
+<p>Welcome to the DynamiCore API! You can use our API to access DynamiCore API endpoints, which can get information on various accounts in our database.</p>
 
 <p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
 <h1 id='authentication'>Authentication</h1>
+<p>Message hash key authentication (HMAC) is a specific construct for calculating a message authentication code, which involves a cryptographic hash function in combination with a cryptographic secret key.</p>
+
+<p>Like any MAC, it can be used to simultaneously verify data integrity and authentication of a message. The SHA-512 cryptographic hash function is used.</p>
+
+<p>The hash function breaks a message into a block of a fixed size and iterates over them with a compression function. The cryptographic strength of HMAC depends on the cryptographic power of the underlying hash function, the size of its hash output and quality of the key.</p>
+
 <blockquote>
 <p>To authorize, use this code:</p>
 </blockquote>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<pre class="highlight javascript tab-javascript"><code><span class="kd">function</span> <span class="nx">getPath</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">pathRegex</span> <span class="o">=</span> <span class="sr">/.+</span><span class="se">?\:\/\/</span><span class="sr">.+</span><span class="se">?(\/</span><span class="sr">.+</span><span class="se">?)(?:</span><span class="sr">#|</span><span class="se">\?</span><span class="sr">|$</span><span class="se">)</span><span class="sr">/</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">url</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">pathRegex</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">result</span> <span class="o">&amp;&amp;</span> <span class="nx">result</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="p">?</span> <span class="nx">result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">:</span> <span class="s2">""</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<span class="kd">function</span> <span class="nx">getQueryString</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">arrSplit</span> <span class="o">=</span> <span class="nx">url</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">"?"</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">arrSplit</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="p">?</span> <span class="nx">url</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="nx">url</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">"?"</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="p">:</span> <span class="s2">""</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"kittn"</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">_requestData</span><span class="p">;</span>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s2">"meowmeowmeow"</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
-</blockquote>
+<span class="kd">function</span> <span class="nx">getAuthHeader</span><span class="p">(</span><span class="nx">httpMethod</span><span class="p">,</span> <span class="nx">requestUrl</span><span class="p">,</span> <span class="nx">_requestBody</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">CLIENT_KEY</span> <span class="o">=</span> <span class="s2">"CLIENT_KEY"</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">hash</span> <span class="o">=</span> <span class="s2">"SECRET_KEY"</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">SECRET_KEY</span> <span class="o">=</span> <span class="nx">CryptoJS</span><span class="p">.</span><span class="nx">enc</span><span class="p">.</span><span class="nx">Hex</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">CryptoJS</span><span class="p">.</span><span class="nx">SHA512</span><span class="p">(</span><span class="nx">hash</span><span class="p">));</span>
+  <span class="kd">var</span> <span class="nx">AUTH_TYPE</span> <span class="o">=</span> <span class="s2">"Ictineo"</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">requestBody</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">requestPath</span> <span class="o">=</span> <span class="nx">getPath</span><span class="p">(</span><span class="nx">requestUrl</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">queryString</span> <span class="o">=</span> <span class="nx">getQueryString</span><span class="p">(</span><span class="nx">requestUrl</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">httpMethod</span> <span class="o">==</span> <span class="s2">"GET"</span> <span class="o">||</span> <span class="o">!</span><span class="nx">_requestBody</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">requestBody</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">requestBody</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">_requestBody</span><span class="p">));</span>
+  <span class="p">}</span>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+  <span class="kd">var</span> <span class="nx">timestamp</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getTime</span><span class="p">();</span>
+  <span class="kd">var</span> <span class="nx">requestData</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="nx">timestamp</span><span class="p">,</span>
+    <span class="nx">httpMethod</span><span class="p">,</span>
+    <span class="nx">requestPath</span><span class="p">,</span>
+    <span class="nx">queryString</span><span class="p">,</span>
+    <span class="nx">requestBody</span><span class="p">,</span>
+  <span class="p">].</span><span class="nx">join</span><span class="p">(</span><span class="s2">""</span><span class="p">);</span>
+  <span class="nx">requestData</span> <span class="o">=</span> <span class="nx">requestData</span><span class="p">.</span><span class="nx">trim</span><span class="p">();</span>
+  <span class="nx">_requestData</span> <span class="o">=</span> <span class="nx">requestData</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">hmacDigest</span> <span class="o">=</span> <span class="nx">CryptoJS</span><span class="p">.</span><span class="nx">enc</span><span class="p">.</span><span class="nx">Hex</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span>
+    <span class="nx">CryptoJS</span><span class="p">.</span><span class="nx">HmacSHA256</span><span class="p">(</span><span class="nx">requestData</span><span class="p">,</span> <span class="nx">SECRET_KEY</span><span class="p">)</span>
+  <span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">authHeader</span> <span class="o">=</span>
+    <span class="nx">AUTH_TYPE</span> <span class="o">+</span> <span class="s2">" "</span> <span class="o">+</span> <span class="nx">CLIENT_KEY</span> <span class="o">+</span> <span class="s2">":"</span> <span class="o">+</span> <span class="nx">timestamp</span> <span class="o">+</span> <span class="s2">":"</span> <span class="o">+</span> <span class="nx">hmacDigest</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nx">authHeader</span><span class="p">;</span>
+<span class="p">}</span>
 
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code>Authorization: meowmeowmeow</code></p>
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-<h1 id='types'>Types</h1><h2 id='types-of-clients'>Types of Clients</h2>
-<!-- ```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-``` -->
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.fintcore.com/v1/clients/types"</span>
+<span class="nx">postman</span><span class="p">.</span><span class="nx">setEnvironmentVariable</span><span class="p">(</span>
+  <span class="s2">"hmacAuthHeader"</span><span class="p">,</span>
+  <span class="nx">getAuthHeader</span><span class="p">(</span><span class="nx">request</span><span class="p">[</span><span class="s2">"method"</span><span class="p">],</span> <span class="nx">request</span><span class="p">[</span><span class="s2">"url"</span><span class="p">],</span> <span class="nx">request</span><span class="p">[</span><span class="s2">"data"</span><span class="p">])</span>
+<span class="p">);</span>
+<span class="nx">postman</span><span class="p">.</span><span class="nx">setEnvironmentVariable</span><span class="p">(</span><span class="s2">"hmac_d"</span><span class="p">,</span> <span class="nx">_requestData</span><span class="p">);</span>
+</code></pre><h1 id='types'>Types</h1><h2 id='types-of-clients'>Types of Clients</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.dynamicore.io/v1/clients/types"</span>
   -H <span class="s2">"Authorization: meowmeowmeow"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"kittn"</span><span class="p">);</span>
 
@@ -337,7 +382,7 @@ api.kittens.get()
 </span></code></pre>
 <p>This endpoint create accounts</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://api.fintcore.com/v1/clients/types</code></p>
+<p><code>GET https://api.dynamicore.io/v1/clients/types</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -394,7 +439,7 @@ Remember — a happy kitten is an authenticated kitten!
 
 <span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
 <span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.fintcore.com/v1/products/types"</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.dynamicore.io/v1/products/types"</span>
   -H <span class="s2">"Authorization: meowmeowmeow"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"kittn"</span><span class="p">);</span>
 
@@ -439,7 +484,7 @@ Remember — a happy kitten is an authenticated kitten!
 </span></code></pre>
 <p>This endpoint retrieves all accounts.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET https://api.fintcore.com/v1/products/types</code></p>
+<p><code>GET https://api.dynamicore.io/v1/products/types</code></p>
 <h3 id='query-parameters-2'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -466,7 +511,7 @@ Remember — a happy kitten is an authenticated kitten!
 
 <span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
 <span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.fintcore.com/v1/emails/types"</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.dynamicore.io/v1/emails/types"</span>
   -H <span class="s2">"Authorization: meowmeowmeow"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"kittn"</span><span class="p">);</span>
 
@@ -496,7 +541,7 @@ Remember — a happy kitten is an authenticated kitten!
 
 <!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET https://api.fintcore.com/v1/emails/types</code></p>
+<p><code>GET https://api.dynamicore.io/v1/emails/types</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -517,7 +562,7 @@ Remember — a happy kitten is an authenticated kitten!
 
 <span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
 <span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.fintcore.com/v1/catalog/fields/client"</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.dynamicore.io/v1/catalog/fields/client"</span>
   -H <span class="s2">"Authorization: meowmeowmeow"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"kittn"</span><span class="p">);</span>
 
@@ -547,7 +592,7 @@ Remember — a happy kitten is an authenticated kitten!
 
 <!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>GET https://api.fintcore.com/v1/catalog/fields/client</code></p>
+<p><code>GET https://api.dynamicore.io/v1/catalog/fields/client</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -568,7 +613,7 @@ Remember — a happy kitten is an authenticated kitten!
 
 <span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
 <span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.fintcore.com/v1/catalog/fields/product"</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.dynamicore.io/v1/catalog/fields/product"</span>
   -H <span class="s2">"Authorization: meowmeowmeow"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"kittn"</span><span class="p">);</span>
 
@@ -598,7 +643,7 @@ Remember — a happy kitten is an authenticated kitten!
 
 <!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
 <h3 id='http-request-5'>HTTP Request</h3>
-<p><code>GET https://api.fintcore.com/v1/catalog/fields/product</code></p>
+<p><code>GET https://api.dynamicore.io/v1/catalog/fields/product</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -611,63 +656,375 @@ Remember — a happy kitten is an authenticated kitten!
 <td>The ID of the account to retrieve</td>
 </tr>
 </tbody></table>
-<h1 id='clients'>Clients</h1><h2 id='catalog-of-type-of-client-2'>Catalog of Type of Client</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.fintcore.com/v1/catalog/fields/client"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"kittn"</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s2">"meowmeowmeow"</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<h1 id='clients'>Clients</h1><h2 id='create-client'>Create Client</h2><pre class="highlight shell tab-shell"><code>curl https://api.dynamicore.io/v1/clients <span class="se">\</span>
+  -H <span class="s2">"accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="nv">client_type</span><span class="o">=</span><span class="s2">"17"</span> <span class="se">\</span>
+  -d <span class="s2">"pii[firstname]"</span><span class="o">=</span><span class="s2">"Rafael"</span> <span class="se">\</span>
+  -d <span class="s2">"pii[lastname]"</span><span class="o">=</span><span class="s2">"Lopez"</span> <span class="se">\</span>
+  -d <span class="s2">"pii[rfc]"</span><span class="o">=</span><span class="s2">"RALO101086GT4"</span> <span class="se">\</span>
+  -d <span class="s2">"pii[email]"</span><span class="o">=</span><span class="s2">"email@google.com"</span>
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>RESPONSE:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">178</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"tipo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"debito"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuenta"</span><span class="p">:</span><span class="w"> </span><span class="mi">165</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"moneda"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"referencia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-002"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"limites"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"ultimo_hash"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"saldo_disponible"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"grupo"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"extras"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"nombre"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condominio Pantitlan"</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific account.</p>
-
-<!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
+<p>This endpoint is used to create client.</p>
 <h3 id='http-request-6'>HTTP Request</h3>
-<p><code>GET https://api.fintcore.com/v1/catalog/fields/client</code></p>
+<p><code>POST https://api.dynamicore.io/v1/clients</code></p>
 <h3 id='url-parameters-4'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
 <th>Description</th>
+<th>Example</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the account to retrieve</td>
+<td>client_type</td>
+<td>Y</td>
+<td>String</td>
+<td>Type of client</td>
+<td>17</td>
+</tr>
+<tr>
+<td>pii[firstname]</td>
+<td>Y</td>
+<td>String</td>
+<td>Firstname of client</td>
+<td>Rafael</td>
+</tr>
+<tr>
+<td>pii[lastname]</td>
+<td>Y</td>
+<td>String</td>
+<td>Lastname of client</td>
+<td>Lopez</td>
+</tr>
+<tr>
+<td>pii[rfc]</td>
+<td>Y</td>
+<td>String</td>
+<td>RFC of client</td>
+<td>RALO101086GT4</td>
+</tr>
+<tr>
+<td>pii[email]</td>
+<td>Y</td>
+<td>String</td>
+<td>Email of client</td>
+<td>email@google.com</td>
 </tr>
 </tbody></table>
+<h2 id='update-client'>Update Client</h2><pre class="highlight shell tab-shell"><code>curl https://api.dynamicore.io/v1/clients <span class="se">\</span>
+  -H <span class="s2">"accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="nv">id</span><span class="o">=</span><span class="s2">"1"</span> <span class="se">\</span>
+  -d <span class="s2">"pii[firstname]"</span><span class="o">=</span><span class="s2">"Rafael"</span> <span class="se">\</span>
+  -d <span class="s2">"pii[lastname]"</span><span class="o">=</span><span class="s2">"Lopez"</span> <span class="se">\</span>
+  -d <span class="s2">"pii[rfc]"</span><span class="o">=</span><span class="s2">"RALO101086GT4"</span> <span class="se">\</span>
+  -d <span class="s2">"pii[email]"</span><span class="o">=</span><span class="s2">"email@google.com"</span>
+</code></pre>
+<blockquote>
+<p>RESPONSE:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint is used to update client.</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>PUT https://api.dynamicore.io/v1/clients</code></p>
+<h3 id='url-parameters-5'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Y</td>
+<td>String</td>
+<td>ID Clients</td>
+<td>1</td>
+</tr>
+<tr>
+<td>pii[firstname]</td>
+<td>O</td>
+<td>String</td>
+<td>Firstname of client</td>
+<td>Rafael</td>
+</tr>
+<tr>
+<td>pii[lastname]</td>
+<td>O</td>
+<td>String</td>
+<td>Lastname of client</td>
+<td>Lopez</td>
+</tr>
+<tr>
+<td>pii[rfc]</td>
+<td>O</td>
+<td>String</td>
+<td>RFC of client</td>
+<td>RALO101086GT4</td>
+</tr>
+<tr>
+<td>pii[email]</td>
+<td>O</td>
+<td>String</td>
+<td>Email of client</td>
+<td>email@google.com</td>
+</tr>
+</tbody></table>
+<h2 id='list-of-clients'>List of Clients</h2><pre class="highlight shell tab-shell"><code>curl https://api.dynamicore.io/v1/clients <span class="se">\</span>
+  -H <span class="s2">"accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="nv">id</span><span class="o">=</span><span class="s2">"1"</span>
+</code></pre>
+<blockquote>
+<p>RESPONSE:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint is used to list of clients.</p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>GET https://api.dynamicore.io/v1/clients</code></p>
+<h3 id='url-parameters-6'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>O</td>
+<td>String</td>
+<td>Client Identifier</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<h2 id='get-sat'>Get SAT</h2><pre class="highlight shell tab-shell"><code>curl https://api.dynamicore.io/v1/clients/:client_id/sat <span class="se">\</span>
+  -H <span class="s2">"accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="nv">id</span><span class="o">=</span><span class="s2">"1"</span>
+</code></pre>
+<blockquote>
+<p>RESPONSE:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint is used to get SAT data.</p>
+<h3 id='http-request-9'>HTTP Request</h3>
+<p><code>GET https://api.dynamicore.io/v1/clients/:client_id/sat</code></p>
+<h2 id='get-credit-score'>Get Credit Score</h2><pre class="highlight shell tab-shell"><code>curl https://api.dynamicore.io/v1/clients/:client_id/score <span class="se">\</span>
+  -H <span class="s2">"accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+</code></pre>
+<blockquote>
+<p>RESPONSE:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint is used to get Credit Score.</p>
+<h3 id='http-request-10'>HTTP Request</h3>
+<p><code>GET https://api.dynamicore.io/v1/clients/:client_id/score</code></p>
+<h1 id='accounts'>Accounts</h1><h2 id='create-account'>Create Account</h2><pre class="highlight shell tab-shell"><code>curl https://api.dynamicore.io/v1/accounts <span class="se">\</span>
+  -H <span class="s2">"accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="nv">client_id</span><span class="o">=</span><span class="s2">"1"</span> <span class="se">\</span>
+  -d <span class="nv">product</span><span class="o">=</span><span class="s2">"6"</span> <span class="se">\</span>
+  -d <span class="nv">enabled</span><span class="o">=</span><span class="s2">"1"</span> <span class="se">\</span>
+  -d <span class="nv">currency</span><span class="o">=</span><span class="s2">"484"</span> <span class="se">\</span>
+</code></pre>
+<blockquote>
+<p>RESPONSE:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint is used to create account.</p>
+<h3 id='http-request-11'>HTTP Request</h3>
+<p><code>POST https://api.dynamicore.io/v1/accounts</code></p>
+<h3 id='url-parameters-7'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>client_id</td>
+<td>Y</td>
+<td>String</td>
+<td>Client Identifier</td>
+<td>1</td>
+</tr>
+<tr>
+<td>product</td>
+<td>Y</td>
+<td>String</td>
+<td>Product Identifier</td>
+<td>6</td>
+</tr>
+<tr>
+<td>enabled</td>
+<td>Y</td>
+<td>String</td>
+<td>Enabled of product. . Values: Active -&gt; 1, Inactive -&gt; 0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>Y</td>
+<td>String</td>
+<td>Product currency</td>
+<td>484</td>
+</tr>
+</tbody></table>
+<h2 id='customer-accounts'>Customer accounts</h2><pre class="highlight shell tab-shell"><code>curl https://api.dynamicore.io/v1/accounts <span class="se">\</span>
+  -H <span class="s2">"accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="nv">client_id</span><span class="o">=</span><span class="s2">"1"</span> <span class="se">\</span>
+  -d <span class="nv">id</span><span class="o">=</span><span class="s2">"1"</span>
+</code></pre>
+<blockquote>
+<p>RESPONSE:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint is used to customer accounts.</p>
+<h3 id='http-request-12'>HTTP Request</h3>
+<p><code>GET https://api.dynamicore.io/v1/accounts</code></p>
+<h3 id='url-parameters-8'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Y</td>
+<td>String</td>
+<td>Account Identifier</td>
+<td>1</td>
+</tr>
+<tr>
+<td>client_id</td>
+<td>Y</td>
+<td>String</td>
+<td>Client Identifier</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<h2 id='account-transactions'>Account transactions</h2><pre class="highlight shell tab-shell"><code>curl https://api.dynamicore.io/v1/accounts/:account_id/transactions <span class="se">\</span>
+  -H <span class="s2">"accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>RESPONSE:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint is used to get account transactions.</p>
+<h3 id='http-request-13'>HTTP Request</h3>
+<p><code>GET https://api.dynamicore.io/v1/accounts/:account_id/transactions</code></p>
+<h2 id='account-payments'>Account payments</h2><pre class="highlight shell tab-shell"><code>curl https://api.dynamicore.io/v1/accounts/:account_id/payments <span class="se">\</span>
+  -H <span class="s2">"accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>RESPONSE:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint is used to get account payments.</p>
+<h3 id='http-request-14'>HTTP Request</h3>
+<p><code>GET https://api.dynamicore.io/v1/accounts/:account_id/payments</code></p>
 <h1 id='errors'>Errors</h1>
-<!-- <aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside> -->
+<aside class="notice">
+DynamiCore uses conventional HTTP response codes to indicate the success or failure of an API request. In general: Codes in the 2xx range indicate success. Codes in the 4xx range indicate an error that failed given the information provided (e.g., a required parameter was omitted, a charge failed, etc.). Codes in the 5xx range indicate an error with Ictineo servers (these are rare).
+</aside>
 
-<p>The Enovabancorp API uses the following error codes:</p>
+<p>HTTP STATUS CODE SUMMARY</p>
 
 <table><thead>
 <tr>
@@ -676,48 +1033,24 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 </tr>
 </thead><tbody>
 <tr>
-<td>400</td>
-<td>Bad Request -- Your request is invalid.</td>
-</tr>
-<tr>
 <td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
+<td>Unauthorized</td>
 </tr>
 <tr>
 <td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+<td>Forbidden</td>
 </tr>
 <tr>
 <td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
+<td>Not Found - The resource you are trying to access cannot be found</td>
 </tr>
 <tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+<td>409</td>
+<td>Conflict - A conflict occurred on the server while processing your request</td>
 </tr>
 <tr>
 <td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+<td>Internal Server Error - A serious error occurred on the server, please try again later</td>
 </tr>
 </tbody></table>
 
