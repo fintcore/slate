@@ -559,3 +559,122 @@ This endpoint is used to get account payments.
 ### HTTP Request
 
 `GET https://api.dynamicore.io/v1/accounts/:account_id/payments`
+
+# SAT
+
+## Load Keys
+
+```shell
+curl https://api.dynamicore.io/internal/sat/sat_key \
+  -H "accept: application/json" \
+  -H "Content-Type: application/json" \
+  -d client=1 \
+  -d type="ciec" \
+  -d pas="" \
+  -d key="" \
+  -d cer="" \
+```
+
+> RESPONSE:
+
+```json
+{
+  "status": "success",
+  "message": {
+    "code": 1,
+    "total": 0,
+    "data": []
+  }
+}
+```
+
+This endpoint is used to keys for SAT consult.
+
+### HTTP Request
+
+`POST https://api.dynamicore.io/internal/sat/sat_key`
+
+### Parameters
+
+| Parameter | Required | Type   | Description                                              | Example |
+| --------- | -------- | ------ | -------------------------------------------------------- | ------- |
+| client    | Y        | Number | Client Identifier                                        | 1       |
+| type      | Y        | String | Type of keys for SAT consult. Values: ciec, efirma       | ciec    |
+| pas       | Y        | String | Password of keys                                         |         |
+| key       | O        | String | Private key. File of type key                            | file.key|
+| cer       | O        | String | Certificate. File of type cer                            | file.cer|
+
+## Sync Data 
+
+```shell
+curl https://api.dynamicore.io/internal/sat/sat_key \
+  -H "accept: application/json" \
+  -H "Content-Type: application/json" \
+  -d client=1 \
+  -d start="2021-01-01"
+  -d end: "2021-11-31"
+```
+
+> RESPONSE:
+
+```json
+{
+  "status": "success",
+  "message": {
+    "code": 1,
+    "total": 0,
+    "data": []
+  }
+}
+```
+
+This endpoint is used to sync of the SAT data. Its execute is async to obtain data you should used the endpoint Get Data.
+
+### HTTP Request
+
+`POST https://api.dynamicore.io/internal/sat/sat_key`
+
+### Parameters
+
+| Parameter | Required | Type   | Description                    | Example    |
+| --------- | -------- | ------ | ------------------------------ | ---------- |
+| client    | Y        | Number | Client Identifier              | 1          |
+| start     | Y        | String | Start of date to obtain data   | 2021-01-01 | 
+| end       | Y        | String | End of date to obtain data     | 2021-11-31 |
+
+## Get Data
+
+```shell
+curl https://api.dynamicore.io/private/sat/data \
+  -H "accept: application/json" \
+  -H "Content-Type: application/json"
+```
+
+> RESPONSE:
+
+```json
+{
+  "status": "success",
+  "message": {
+    "code": 1,
+    "total": 0,
+    "data": []
+  }
+}
+```
+
+This endpoint is used to get data of SAT.
+
+### HTTP Request
+
+`GET https://api.dynamicore.io/private/sat/data`
+
+### Query Parameters
+
+| Parameter | Required | Type   | Description                    | Example    |
+| --------- | -------- | ------ | ------------------------------ | ---------- |
+| client    |     Y    | Number | Client Identifier              | 1          |
+| start     |     O    | String | Start of date to obtain data   | 2021-01-01 | 
+| end       |     O    | String | End of date to obtain data     | 2021-11-31 |
+| limit     |     O    | String | Limit query results            | 50         |
+| page      |     0    | String | Paginate query results         | 1          |
