@@ -98,8 +98,12 @@ html, body {
       position: absolute;
       top: 17px;
       left: $nav-padding;
-      color: $nav-text;
+      color: $main-text;
       @extend %icon-search;
+    }
+
+    ::placeholder {
+      color: $main-text;
     }
   }
 
