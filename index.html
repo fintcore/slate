@@ -206,11 +206,11 @@
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="images/navbar-cad8cdcb.png" alt="Navbar" />
+        <img src="images/navbar-cad8cdcb.png" alt="" />
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo-bcfbcf05.png" class="logo" alt="Logo" />
+      <img src="images/logo-bcfbcf05.png" class="logo" alt="" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
               <a href="#" data-language-name="javascript">javascript</a>
@@ -282,6 +282,20 @@
                   </li>
                   <li>
                     <a href="#account-payments" class="toc-h2 toc-link" data-title="Account payments">Account payments</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#sat" class="toc-h1 toc-link" data-title="SAT">SAT</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#load-keys" class="toc-h2 toc-link" data-title="Load Keys">Load Keys</a>
+                  </li>
+                  <li>
+                    <a href="#sync-data" class="toc-h2 toc-link" data-title="Sync Data">Sync Data</a>
+                  </li>
+                  <li>
+                    <a href="#get-data" class="toc-h2 toc-link" data-title="Get Data">Get Data</a>
                   </li>
               </ul>
           </li>
@@ -534,7 +548,7 @@ This endpoint retrieves a specific account.
 <p>This endpoint retrieves a catalog of product templates.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET https://api.dynamicore.io/v1/catalog/fields/product</code></p>
-<h1 id='clients'>Clients</h1><h2 id='create-client'>Create Client</h2><pre class="highlight shell tab-shell"><code>curl https://api.dynamicore.io/v1/clients <span class="se">\</span>
+<h1 id='clients'>Clients</h1><h2 id='create-client'>Create Client</h2><pre class="highlight shell tab-shell"><code>curl https://api.dynamicore.io/private/clients <span class="se">\</span>
   -H <span class="s2">"accept: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -d <span class="nv">client_type</span><span class="o">=</span><span class="s2">"17"</span> <span class="se">\</span>
@@ -557,7 +571,7 @@ This endpoint retrieves a specific account.
 </span></code></pre>
 <p>This endpoint is used to create client.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
-<p><code>POST https://api.dynamicore.io/v1/clients</code></p>
+<p><code>POST https://api.dynamicore.io/private/clients</code></p>
 <h3 id='parameters-3'>Parameters</h3>
 <table><thead>
 <tr>
@@ -604,7 +618,7 @@ This endpoint retrieves a specific account.
 <td>email@google.com</td>
 </tr>
 </tbody></table>
-<h2 id='update-client'>Update Client</h2><pre class="highlight shell tab-shell"><code>curl https://api.dynamicore.io/v1/clients <span class="se">\</span>
+<h2 id='update-client'>Update Client</h2><pre class="highlight shell tab-shell"><code>curl https://api.dynamicore.io/private/clients <span class="se">\</span>
   -H <span class="s2">"accept: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span><span class="s2">"1"</span> <span class="se">\</span>
@@ -627,7 +641,7 @@ This endpoint retrieves a specific account.
 </span></code></pre>
 <p>This endpoint is used to update client.</p>
 <h3 id='http-request-6'>HTTP Request</h3>
-<p><code>PUT https://api.dynamicore.io/v1/clients</code></p>
+<p><code>PUT https://api.dynamicore.io/private/clients</code></p>
 <h3 id='uparameters'>UParameters</h3>
 <table><thead>
 <tr>
@@ -674,7 +688,7 @@ This endpoint retrieves a specific account.
 <td>email@google.com</td>
 </tr>
 </tbody></table>
-<h2 id='list-of-clients'>List of Clients</h2><pre class="highlight shell tab-shell"><code>curl https://api.dynamicore.io/v1/clients <span class="se">\</span>
+<h2 id='list-of-clients'>List of Clients</h2><pre class="highlight shell tab-shell"><code>curl https://api.dynamicore.io/private/clients <span class="se">\</span>
   -H <span class="s2">"accept: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span><span class="s2">"1"</span>
@@ -693,7 +707,7 @@ This endpoint retrieves a specific account.
 </span></code></pre>
 <p>This endpoint is used to list of clients.</p>
 <h3 id='http-request-7'>HTTP Request</h3>
-<p><code>GET https://api.dynamicore.io/v1/clients</code></p>
+<p><code>GET https://api.dynamicore.io/private/clients</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -715,7 +729,11 @@ This endpoint retrieves a specific account.
 <h2 id='get-sat'>Get SAT</h2><pre class="highlight shell tab-shell"><code>curl https://api.dynamicore.io/v1/clients/:client_id/sat <span class="se">\</span>
   -H <span class="s2">"accept: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -d <span class="nv">id</span><span class="o">=</span><span class="s2">"1"</span>
+  -d <span class="nv">cer</span><span class="o">=</span><span class="s2">"data:application/x-x509-ca-cert;base64"</span>
+  -d <span class="nv">key</span><span class="o">=</span><span class="s2">"data:application/x-iwork-keynote-sffkey;base64"</span>
+  -d <span class="nv">pas</span><span class="o">=</span><span class="s2">"******"</span>
+  -d <span class="nv">rfc</span><span class="o">=</span><span class="s2">"RAFO830910GT7"</span>
+  -d <span class="nb">type</span><span class="o">=</span><span class="s2">"efirma"</span>
 </code></pre>
 <blockquote>
 <p>RESPONSE:</p>
@@ -897,6 +915,195 @@ This endpoint retrieves a specific account.
 <p>This endpoint is used to get account payments.</p>
 <h3 id='http-request-13'>HTTP Request</h3>
 <p><code>GET https://api.dynamicore.io/v1/accounts/:account_id/payments</code></p>
+<h1 id='sat'>SAT</h1><h2 id='load-keys'>Load Keys</h2><pre class="highlight shell tab-shell"><code>curl https://api.dynamicore.io/internal/sat/sat_key <span class="se">\</span>
+  -H <span class="s2">"accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="nv">client</span><span class="o">=</span>1 <span class="se">\</span>
+  -d <span class="nb">type</span><span class="o">=</span><span class="s2">"ciec"</span> <span class="se">\</span>
+  -d <span class="nv">pas</span><span class="o">=</span><span class="s2">""</span> <span class="se">\</span>
+  -d <span class="nv">key</span><span class="o">=</span><span class="s2">""</span> <span class="se">\</span>
+  -d <span class="nv">cer</span><span class="o">=</span><span class="s2">""</span> <span class="se">\</span>
+</code></pre>
+<blockquote>
+<p>RESPONSE:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint is used to keys for SAT consult.</p>
+<h3 id='http-request-14'>HTTP Request</h3>
+<p><code>POST https://api.dynamicore.io/internal/sat/sat_key</code></p>
+<h3 id='parameters-5'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>client</td>
+<td>Y</td>
+<td>Number</td>
+<td>Client Identifier</td>
+<td>1</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Y</td>
+<td>String</td>
+<td>Type of keys for SAT consult. Values: ciec, efirma</td>
+<td>ciec</td>
+</tr>
+<tr>
+<td>pas</td>
+<td>Y</td>
+<td>String</td>
+<td>Password of keys</td>
+<td></td>
+</tr>
+<tr>
+<td>key</td>
+<td>O</td>
+<td>String</td>
+<td>Private key. File of type key in Base64</td>
+<td>file.key</td>
+</tr>
+<tr>
+<td>cer</td>
+<td>O</td>
+<td>String</td>
+<td>Certificate. File of type cer in Base64</td>
+<td>file.cer</td>
+</tr>
+</tbody></table>
+<h2 id='sync-data'>Sync Data</h2><pre class="highlight shell tab-shell"><code>curl https://api.dynamicore.io/internal/sat/sat_key <span class="se">\</span>
+  -H <span class="s2">"accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="nv">client</span><span class="o">=</span>1 <span class="se">\</span>
+  -d <span class="nv">start</span><span class="o">=</span><span class="s2">"2021-01-01"</span>
+  -d end: <span class="s2">"2021-11-31"</span>
+</code></pre>
+<blockquote>
+<p>RESPONSE:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint is used to sync of the SAT data. Its execute is async to obtain data you should used the endpoint Get Data.</p>
+<h3 id='http-request-15'>HTTP Request</h3>
+<p><code>POST https://api.dynamicore.io/internal/sat/sat_key</code></p>
+<h3 id='parameters-6'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>client</td>
+<td>Y</td>
+<td>Number</td>
+<td>Client Identifier</td>
+<td>1</td>
+</tr>
+<tr>
+<td>start</td>
+<td>Y</td>
+<td>String</td>
+<td>Start of date to obtain data</td>
+<td>2021-01-01</td>
+</tr>
+<tr>
+<td>end</td>
+<td>Y</td>
+<td>String</td>
+<td>End of date to obtain data</td>
+<td>2021-11-31</td>
+</tr>
+</tbody></table>
+<h2 id='get-data'>Get Data</h2><pre class="highlight shell tab-shell"><code>curl https://api.dynamicore.io/private/sat/data <span class="se">\</span>
+  -H <span class="s2">"accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>RESPONSE:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint is used to get data of SAT.</p>
+<h3 id='http-request-16'>HTTP Request</h3>
+<p><code>GET https://api.dynamicore.io/private/sat/data</code></p>
+<h3 id='query-parameters-3'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>client</td>
+<td>Y</td>
+<td>Number</td>
+<td>Client Identifier</td>
+<td>1</td>
+</tr>
+<tr>
+<td>start</td>
+<td>O</td>
+<td>String</td>
+<td>Start of date to obtain data</td>
+<td>2021-01-01</td>
+</tr>
+<tr>
+<td>end</td>
+<td>O</td>
+<td>String</td>
+<td>End of date to obtain data</td>
+<td>2021-11-31</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>O</td>
+<td>String</td>
+<td>Limit query results</td>
+<td>50</td>
+</tr>
+<tr>
+<td>page</td>
+<td>0</td>
+<td>String</td>
+<td>Paginate query results</td>
+<td>1</td>
+</tr>
+</tbody></table>
 <h1 id='errors'>Errors</h1>
 <aside class="notice">
 DynamiCore uses conventional HTTP response codes to indicate the success or failure of an API request. In general: Codes in the 2xx range indicate success. Codes in the 4xx range indicate an error that failed given the information provided (e.g., a required parameter was omitted, a charge failed, etc.). Codes in the 5xx range indicate an error with Ictineo servers (these are rare).
