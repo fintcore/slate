@@ -599,10 +599,10 @@ This endpoint is used to keys for SAT consult.
 | Parameter | Required | Type   | Description                                              | Example |
 | --------- | -------- | ------ | -------------------------------------------------------- | ------- |
 | client    | Y        | Number | Client Identifier                                        | 1       |
-| type      | Y        | String | Type of keys for SAT consult. Values: ciec, efirma       | ciec    |
+| type      | Y        | String | Type of keys for SAT consult. Values: ciec(You need to send the pas parameter), efirma(You need to send the pas, key and cer parameters)       | ciec    |
 | pas       | Y        | String | Password of keys                                         |         |
-| key       | O        | String | Private key. File of type key                            | file.key|
-| cer       | O        | String | Certificate. File of type cer                            | file.cer|
+| key       | O        | String | Private key. File of type key in Base64                  | file.key|
+| cer       | O        | String | Certificate. File of type cer in Base64                  | file.cer|
 
 ## Sync Data 
 
@@ -677,4 +677,4 @@ This endpoint is used to get data of SAT.
 | start     |     O    | String | Start of date to obtain data   | 2021-01-01 | 
 | end       |     O    | String | End of date to obtain data     | 2021-11-31 |
 | limit     |     O    | String | Limit query results            | 50         |
-| page      |     0    | String | Paginate query results         | 1          |
+| page      |     0    | String | Paginate query results         | 1|
