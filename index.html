@@ -261,6 +261,9 @@
                     <a href="#list-of-clients" class="toc-h2 toc-link" data-title="List of Clients">List of Clients</a>
                   </li>
                   <li>
+                    <a href="#upload-documents" class="toc-h2 toc-link" data-title="Upload Documents">Upload Documents</a>
+                  </li>
+                  <li>
                     <a href="#get-sat" class="toc-h2 toc-link" data-title="Get SAT">Get SAT</a>
                   </li>
                   <li>
@@ -642,7 +645,7 @@ This endpoint retrieves a specific account.
 <p>This endpoint is used to update client.</p>
 <h3 id='http-request-6'>HTTP Request</h3>
 <p><code>PUT https://api.dynamicore.io/private/clients</code></p>
-<h3 id='uparameters'>UParameters</h3>
+<h3 id='parameters-4'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -726,6 +729,44 @@ This endpoint retrieves a specific account.
 <td>1</td>
 </tr>
 </tbody></table>
+<h2 id='upload-documents'>Upload Documents</h2><pre class="highlight shell tab-shell"><code>curl https://api.dynamicore.io/files/users/upload/:client_id/:pii[acta_constitutiva] <span class="se">\</span>
+  -H <span class="s2">"accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  --form <span class="s1">'file=@"/path/acta_constitutiva.pdf"'</span>
+</code></pre>
+<blockquote>
+<p>RESPONSE:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint is used to upload documents to client.</p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>POST https://api.dynamicore.io/files/users/upload/:client_id/:pii[acta_constitutiva]</code></p>
+<h3 id='formdata-parameters'>FormData Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>file</td>
+<td>Y</td>
+<td>Array of files</td>
+<td></td>
+<td>acta_constitutiva.pdf, rfc.pdf</td>
+</tr>
+</tbody></table>
 <h2 id='get-sat'>Get SAT</h2><pre class="highlight shell tab-shell"><code>curl https://api.dynamicore.io/v1/clients/:client_id/sat <span class="se">\</span>
   -H <span class="s2">"accept: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
@@ -748,7 +789,7 @@ This endpoint retrieves a specific account.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint is used to get SAT data.</p>
-<h3 id='http-request-8'>HTTP Request</h3>
+<h3 id='http-request-9'>HTTP Request</h3>
 <p><code>GET https://api.dynamicore.io/v1/clients/:client_id/sat</code></p>
 <h2 id='get-credit-score'>Get Credit Score</h2><pre class="highlight shell tab-shell"><code>curl https://api.dynamicore.io/v1/clients/:client_id/score <span class="se">\</span>
   -H <span class="s2">"accept: application/json"</span> <span class="se">\</span>
@@ -767,7 +808,7 @@ This endpoint retrieves a specific account.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint is used to get Credit Score.</p>
-<h3 id='http-request-9'>HTTP Request</h3>
+<h3 id='http-request-10'>HTTP Request</h3>
 <p><code>GET https://api.dynamicore.io/v1/clients/:client_id/score</code></p>
 <h1 id='accounts'>Accounts</h1><h2 id='create-account'>Create Account</h2><pre class="highlight shell tab-shell"><code>curl https://api.dynamicore.io/v1/accounts <span class="se">\</span>
   -H <span class="s2">"accept: application/json"</span> <span class="se">\</span>
@@ -790,9 +831,9 @@ This endpoint retrieves a specific account.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint is used to create account.</p>
-<h3 id='http-request-10'>HTTP Request</h3>
+<h3 id='http-request-11'>HTTP Request</h3>
 <p><code>POST https://api.dynamicore.io/v1/accounts</code></p>
-<h3 id='parameters-4'>Parameters</h3>
+<h3 id='parameters-5'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -850,7 +891,7 @@ This endpoint retrieves a specific account.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint is used to customer accounts.</p>
-<h3 id='http-request-11'>HTTP Request</h3>
+<h3 id='http-request-12'>HTTP Request</h3>
 <p><code>GET https://api.dynamicore.io/v1/accounts</code></p>
 <h3 id='query-parameters-2'>Query Parameters</h3>
 <table><thead>
@@ -894,7 +935,7 @@ This endpoint retrieves a specific account.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint is used to get account transactions.</p>
-<h3 id='http-request-12'>HTTP Request</h3>
+<h3 id='http-request-13'>HTTP Request</h3>
 <p><code>GET https://api.dynamicore.io/v1/accounts/:account_id/transactions</code></p>
 <h2 id='account-payments'>Account payments</h2><pre class="highlight shell tab-shell"><code>curl https://api.dynamicore.io/v1/accounts/:account_id/payments <span class="se">\</span>
   -H <span class="s2">"accept: application/json"</span> <span class="se">\</span>
@@ -913,7 +954,7 @@ This endpoint retrieves a specific account.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint is used to get account payments.</p>
-<h3 id='http-request-13'>HTTP Request</h3>
+<h3 id='http-request-14'>HTTP Request</h3>
 <p><code>GET https://api.dynamicore.io/v1/accounts/:account_id/payments</code></p>
 <h1 id='sat'>SAT</h1><h2 id='load-keys'>Load Keys</h2><pre class="highlight shell tab-shell"><code>curl https://api.dynamicore.io/internal/sat/sat_key <span class="se">\</span>
   -H <span class="s2">"accept: application/json"</span> <span class="se">\</span>
@@ -937,9 +978,9 @@ This endpoint retrieves a specific account.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint is used to keys for SAT consult.</p>
-<h3 id='http-request-14'>HTTP Request</h3>
+<h3 id='http-request-15'>HTTP Request</h3>
 <p><code>POST https://api.dynamicore.io/internal/sat/sat_key</code></p>
-<h3 id='parameters-5'>Parameters</h3>
+<h3 id='parameters-6'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1005,9 +1046,9 @@ This endpoint retrieves a specific account.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint is used to sync of the SAT data. Its execute is async to obtain data you should used the endpoint Get Data.</p>
-<h3 id='http-request-15'>HTTP Request</h3>
+<h3 id='http-request-16'>HTTP Request</h3>
 <p><code>POST https://api.dynamicore.io/internal/sat/sat_key</code></p>
-<h3 id='parameters-6'>Parameters</h3>
+<h3 id='parameters-7'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1056,7 +1097,7 @@ This endpoint retrieves a specific account.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint is used to get data of SAT.</p>
-<h3 id='http-request-16'>HTTP Request</h3>
+<h3 id='http-request-17'>HTTP Request</h3>
 <p><code>GET https://api.dynamicore.io/private/sat/data</code></p>
 <h3 id='query-parameters-3'>Query Parameters</h3>
 <table><thead>
