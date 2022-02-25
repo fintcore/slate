@@ -325,7 +325,7 @@ This endpoint is used to update client.
 
 `PUT https://api.dynamicore.io/private/clients`
 
-### UParameters
+### Parameters
 
 | Parameter      | Required | Type   | Description         | Example          |
 | -------------- | -------- | ------ | ------------------- | ---------------- |
@@ -368,6 +368,40 @@ This endpoint is used to list of clients.
 | Parameter | Required | Type   | Description       | Example |
 | --------- | -------- | ------ | ----------------- | ------- |
 | id        | O        | String | Client Identifier | 1       |
+
+## Upload Documents
+
+```shell
+curl https://api.dynamicore.io/files/users/upload/:client_id/:pii[acta_constitutiva] \
+  -H "accept: application/json" \
+  -H "Content-Type: application/json" \
+  --form 'file=@"/path/acta_constitutiva.pdf"'
+```
+
+> RESPONSE:
+
+```json
+{
+  "status": "success",
+  "message": {
+    "code": 1,
+    "total": 0,
+    "data": []
+  }
+}
+```
+
+This endpoint is used to upload documents to client.
+
+### HTTP Request
+
+`POST https://api.dynamicore.io/files/users/upload/:client_id/:pii[acta_constitutiva]`
+
+### FormData Parameters
+
+| Parameter      | Required | Type             | Description         | Example                        |
+| -------------- | -------- | ---------------- | ------------------- | ------------------------------ |
+| file           | Y        | Array of files   |                     | acta_constitutiva.pdf, rfc.pdf |
 
 ## Get SAT
 
