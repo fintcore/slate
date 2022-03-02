@@ -202,7 +202,7 @@
     <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;javascript&quot;,&quot;html&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -214,6 +214,7 @@
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
               <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="html">html</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -318,6 +319,9 @@
                   </li>
                   <li>
                     <a href="#delete-document" class="toc-h2 toc-link" data-title="Delete Document">Delete Document</a>
+                  </li>
+                  <li>
+                    <a href="#widget" class="toc-h2 toc-link" data-title="Widget">Widget</a>
                   </li>
               </ul>
           </li>
@@ -1308,7 +1312,33 @@ This endpoint retrieves a specific account.
 <p>This endpoint is used to delete the document.</p>
 <h3 id='http-request-20'>HTTP Request</h3>
 <p><code>DELETE https://api.dynamicore.io/marketplace/apps/mifiel/documents/:id</code></p>
-<h1 id='errors'>Errors</h1>
+<h2 id='widget'>Widget</h2>
+<p>The signing widget is a tool that you can embed in your application so that stakeholders sign or approve documents in an iframe without leaving your website.</p>
+
+<p>Note: It is not necessary for stakeholders to be registered in Mifiel In order to sign or approve a document.</p>
+
+<p>To integrate it in your application, copy this <code>&lt;script src=&quot;https://www.mifiel.com/sign-snippet-v1.0.0.min.js&quot;&gt;&lt;/script&gt;</code> and paste it before closing the &lt;/ body &gt; tag in your page.</p>
+
+<p>Each signer or reviewer of a document has a unique identifier to access the document. Make sure to insert the stakeholder’s widget id (which you received when creating the document) so that the stakeholders visualize the correct document in the signing widget.</p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"mifiel-js"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">mifiel</span><span class="p">.</span><span class="nx">widget</span><span class="p">({</span>
+    <span class="na">widgetId</span><span class="p">:</span> <span class="s1">'widgetId'</span><span class="p">,</span>
+    <span class="na">successBtnText</span><span class="p">:</span> <span class="s1">'Proceed to next step'</span><span class="p">,</span>
+    <span class="na">onSuccess</span><span class="p">:</span> <span class="p">{</span>
+      <span class="c1">// here the code you want to execute after the signer successfully sign and click the button could be an url  'mifiel.com' or a function() {}</span>
+      <span class="na">callToAction</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s1">'signed document'</span><span class="p">);</span>
+      <span class="p">},</span>
+    <span class="p">}</span>
+    <span class="nl">onError</span><span class="p">:</span> <span class="p">{</span>
+      <span class="c1">// here the code you want to execute after an error occurs, could be an url  'mifiel.com' or a function() {}</span>
+      <span class="nl">callToAction</span><span class="p">:</span> <span class="s1">'https://www.mifiel.com'</span><span class="p">,</span>
+    <span class="p">},</span>
+  <span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+</code></pre><h1 id='errors'>Errors</h1>
 <aside class="notice">
 DynamiCore uses conventional HTTP response codes to indicate the success or failure of an API request. In general: Codes in the 2xx range indicate success. Codes in the 4xx range indicate an error that failed given the information provided (e.g., a required parameter was omitted, a charge failed, etc.). Codes in the 5xx range indicate an error with Ictineo servers (these are rare).
 </aside>
@@ -1348,6 +1378,7 @@ DynamiCore uses conventional HTTP response codes to indicate the success or fail
           <div class="lang-selector">
                 <a href="#" data-language-name="shell">shell</a>
                 <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="html">html</a>
           </div>
       </div>
     </div>
