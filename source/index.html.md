@@ -753,7 +753,9 @@ curl --request POST 'https://api.dynamicore.io/marketplace/apps/mifiel/documents
 }
 ```
 
-This endpoint is used to create a document that will be signed 
+This endpoint is used to create a document that will be signed.
+
+To sign the document you must load the [`widget`](#widget).
 
 ### HTTP Request
 
@@ -772,6 +774,37 @@ This endpoint is used to create a document that will be signed
 | send_invites    | O        | boolean | Set True if you want Mifiel to email invitations to attendees. If your participants will sign in the widget embedded within your application send False.  | "true" |
 | remind_every   | O        | Integer | Signing reminders will be sent to those who have not signed (if send_mail is enabled)  | 0 |
 | viewers   | O        | Array of objects | List of emails from whom they will receive notifications (if enabled) every time someone signs and they will receive a copy of the signed document.  | [{"email":"","name": ""}]  |
+
+## Widget
+
+The signing widget is a tool that you can embed in your application so that stakeholders sign or approve documents in an iframe without leaving your website.
+
+Note: It is not necessary for stakeholders to be registered in Mifiel In order to sign or approve a document.
+
+To integrate it in your application, copy this `<script src="https://www.mifiel.com/sign-snippet-v1.0.0.min.js"></script>` and paste it before closing the </ body > tag in your page.
+
+Each signer or reviewer of a document has a unique identifier to access the document. Make sure to insert the stakeholder’s widget id (which you received when creating the document) so that the stakeholders visualize the correct document in the signing widget.
+
+```html
+<div id="mifiel-js"></div>
+<script type="text/javascript">
+  window.mifiel.widget({
+    widgetId: 'widgetId',
+    successBtnText: 'Proceed to next step',
+    onSuccess: {
+      // here the code you want to execute after the signer successfully sign and click the button could be an url  'mifiel.com' or a function() {}
+      callToAction: function() {
+        alert('signed document');
+      },
+    }
+    onError: {
+      // here the code you want to execute after an error occurs, could be an url  'mifiel.com' or a function() {}
+      callToAction: 'https://www.mifiel.com',
+    },
+  });
+</script>
+</body>
+```
 
 ## Get Document
 
@@ -824,34 +857,3 @@ This endpoint is used to delete the document.
 ### HTTP Request
 
 `DELETE https://api.dynamicore.io/marketplace/apps/mifiel/documents/:id`
-
-## Widget
-
-The signing widget is a tool that you can embed in your application so that stakeholders sign or approve documents in an iframe without leaving your website.
-
-Note: It is not necessary for stakeholders to be registered in Mifiel In order to sign or approve a document.
-
-To integrate it in your application, copy this `<script src="https://www.mifiel.com/sign-snippet-v1.0.0.min.js"></script>` and paste it before closing the </ body > tag in your page.
-
-Each signer or reviewer of a document has a unique identifier to access the document. Make sure to insert the stakeholder’s widget id (which you received when creating the document) so that the stakeholders visualize the correct document in the signing widget.
-
-```html
-<div id="mifiel-js"></div>
-<script type="text/javascript">
-  window.mifiel.widget({
-    widgetId: 'widgetId',
-    successBtnText: 'Proceed to next step',
-    onSuccess: {
-      // here the code you want to execute after the signer successfully sign and click the button could be an url  'mifiel.com' or a function() {}
-      callToAction: function() {
-        alert('signed document');
-      },
-    }
-    onError: {
-      // here the code you want to execute after an error occurs, could be an url  'mifiel.com' or a function() {}
-      callToAction: 'https://www.mifiel.com',
-    },
-  });
-</script>
-</body>
-```
