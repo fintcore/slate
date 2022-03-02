@@ -594,6 +594,8 @@ This endpoint is used to get account payments.
 
 `GET https://api.dynamicore.io/v1/accounts/:account_id/payments`
 
+# MARKETPLACE
+
 # SAT
 
 ## Load Keys
@@ -712,3 +714,112 @@ This endpoint is used to get data of SAT.
 | end       |     O    | String | End of date to obtain data     | 2021-11-31 |
 | limit     |     O    | String | Limit query results            | 50         |
 | page      |     0    | String | Paginate query results         | 1|
+
+# Mifiel
+
+## Create Document
+
+```shell
+curl --request POST 'https://api.dynamicore.io/marketplace/apps/mifiel/documents' \
+--header 'Authorization: {{hmacAuth}}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "id": 424,
+  "type": "client",
+  "field": "acceptance_bc",
+  "signatories": [
+    { "name": "Demo", "email": "demo@demo.com", "tax_id": "DEMO1A" },
+  ],
+  "external_id": "Mifiel-0000000000000000",
+  "day_to_expire": 1,
+  "message_for_signers": "Message",
+  "remind_every": 0,
+  "send_invites": "true",
+  "viewers": [{"email": "demo@demo.com","name": "demo"}]
+}'
+```
+
+> RESPONSE:
+
+```json
+{
+  "status": "success",
+  "message": {
+    "code": 1,
+    "total": 0,
+    "data": []
+  }
+}
+```
+
+This endpoint is used to create a document that will be signed 
+
+### HTTP Request
+
+`POST https://api.dynamicore.io/marketplace/apps/mifiel/documents`
+
+### Parameters
+
+| Parameter      | Required | Type   | Description         | Example          |
+| -------------- | -------- | ------ | ------------------- | ---------------- |
+| id             | Y        | String | id of client        | 424               |
+| type           | Y        | String | type                | client           |
+| field          | Y        | String | field               | acceptance_bc    |
+| signatories    | Y        | Array of objects | A list of Signatory Object       |  [{"email":"","name": "","tax_id": ""}]    |
+| external_id     | O        | String | Your unique identifier  | Mifiel-0000000000000001 |
+| day_to_expire   | O        | Integer | Number of days the document expires  | 1 |
+| send_invites    | O        | boolean | Set True if you want Mifiel to email invitations to attendees. If your participants will sign in the widget embedded within your application send False.  | "true" |
+| remind_every   | O        | Integer | Signing reminders will be sent to those who have not signed (if send_mail is enabled)  | 0 |
+| viewers   | O        | Array of objects | List of emails from whom they will receive notifications (if enabled) every time someone signs and they will receive a copy of the signed document.  | [{"email":"","name": ""}]  |
+
+## Get Document
+
+```shell
+curl --request GET 'https://api.dynamicore.io/marketplace/apps/mifiel/documents/:id' \
+--header 'Authorization: {{hmacAuth}}'
+```
+
+> RESPONSE:
+
+```json
+{
+  "status": "success",
+  "message": {
+    "code": 1,
+    "total": 0,
+    "data": []
+  }
+}
+```
+
+This endpoint is used to get Document data.
+
+### HTTP Request
+
+`GET https://api.dynamicore.io/marketplace/apps/mifiel/documents/:id`
+
+## Delete Document
+
+```shell
+curl --request DELETE 'https://api.dynamicore.io/marketplace/apps/mifiel/documents/:id' \
+--header 'Authorization: {{hmacAuth}}'
+```
+
+> RESPONSE:
+
+```json
+{
+  "status": "success",
+  "message": {
+    "code": 1,
+    "total": 0,
+    "data": []
+  }
+}
+```
+
+This endpoint is used to delete the document.
+
+### HTTP Request
+
+`DELETE https://api.dynamicore.io/marketplace/apps/mifiel/documents/:id`
