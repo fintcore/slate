@@ -4,6 +4,7 @@ title: API DynamiCore
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
   - javascript
+  - html
 
 toc_footers:
   # - <a href='#'>Sign Up for a Developer Key</a>
@@ -823,3 +824,34 @@ This endpoint is used to delete the document.
 ### HTTP Request
 
 `DELETE https://api.dynamicore.io/marketplace/apps/mifiel/documents/:id`
+
+## Widget
+
+The signing widget is a tool that you can embed in your application so that stakeholders sign or approve documents in an iframe without leaving your website.
+
+Note: It is not necessary for stakeholders to be registered in Mifiel In order to sign or approve a document.
+
+To integrate it in your application, copy this `<script src="https://www.mifiel.com/sign-snippet-v1.0.0.min.js"></script>` and paste it before closing the </ body > tag in your page.
+
+Each signer or reviewer of a document has a unique identifier to access the document. Make sure to insert the stakeholder’s widget id (which you received when creating the document) so that the stakeholders visualize the correct document in the signing widget.
+
+```html
+<div id="mifiel-js"></div>
+<script type="text/javascript">
+  window.mifiel.widget({
+    widgetId: 'widgetId',
+    successBtnText: 'Proceed to next step',
+    onSuccess: {
+      // here the code you want to execute after the signer successfully sign and click the button could be an url  'mifiel.com' or a function() {}
+      callToAction: function() {
+        alert('signed document');
+      },
+    }
+    onError: {
+      // here the code you want to execute after an error occurs, could be an url  'mifiel.com' or a function() {}
+      callToAction: 'https://www.mifiel.com',
+    },
+  });
+</script>
+</body>
+```
