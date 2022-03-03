@@ -1033,3 +1033,162 @@ This endpoint is used to delete the document.
 ### HTTP Request
 
 `DELETE https://api.dynamicore.io/marketplace/apps/mifiel/documents/:id`
+
+# Conekta
+
+## Create Order
+
+```shell
+curl --request POST 'https://api.dynamicore.io/marketplace/apps/conekta/order/new_order' \
+--header 'Authorization: {{hmacAuth}}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "account": 326,
+    "operation": 184,
+    "config": {},
+    "customer_info": {
+      "name": "other prueba"
+    },
+    "items": {
+      "name": "Box of Cohiba S1s",
+      "unit_price": 1000,
+      "quantity": 1
+    },
+    "payment_method": {
+          "type": "oxxo_cash"
+    }
+}'
+```
+
+> RESPONSE:
+
+```json
+{
+  "status": "success",
+  "message": {
+    "code": 1,
+    "total": 1,
+    "data": [
+      {
+        "id": "ord_2rQPaj3neXQQmH7fp",
+        "channel": "oxxo_cash",
+        "amount": 1000,
+        "operation": 184,
+        "account": 326,
+        "company": 2941,
+        "active": "0",
+        "config": {}
+      }
+    ]
+  }
+}
+```
+
+This endpoint is used to create order.
+
+### HTTP Request
+
+`POST https://api.dynamicore.io/marketplace/apps/conekta/order/new_order`
+
+### Query Parameters
+
+| Parameter | Required | Type   | Description                    | Example    |
+| --------- | -------- | ------ | ------------------------------ | ---------- |
+| account    |     Y    | Integer | Account              | 1          |
+| operation     |     Y    | Integer | Operation   | 184 | 
+| customer_info       |     Y    | Object | Object with customer information. Telephone and email is optional     | {"name": "Demo", "phone":"", "email":""} |
+| items     |     Y    | Object | Object with item information. The price per unit expressed in cents.            | { "name": "Box of Cohiba S1s", "unit_price": 1000, "quantity": 1 }         |
+| payment_method      |     Y    | Object | Object with payment method information         | { "type": "oxxo_cash" }|
+| config    |     O    | Object | Config              | {}          |
+
+## Get Order
+
+```shell
+curl --request GET 'https://api.dynamicore.io/marketplace/apps/conekta/order/get_order/:id' \
+--header 'Authorization: {{hmacAuth}}'
+```
+
+> RESPONSE:
+
+```json
+ {
+  "status": "success",
+  "message": {
+    "code": 1,
+    "total": 1,
+    "data": [
+      {
+        "livemode": false,
+        "amount": 900,
+        "currency": "MXN",
+        "payment_status": "paid",
+        "amount_refunded": 0,
+        "customer_info": {
+          "email": "correo@dominio.com",
+          "phone": "55-5555-5555",
+          "name": "other prueba",
+          "object": "customer_info"
+        },
+        "object": "order",
+        "id": "ord_2rLDf1e77o2mKHjY3",
+        "metadata": {},
+        "created_at": 1645230551,
+        "updated_at": 1645230582,
+        "line_items": {
+          "object": "list",
+          "has_more": false,
+          "total": 1,
+          "data": [
+            {
+              "name": "Box of Cohiba S1s",
+              "unit_price": 900,
+              "quantity": 1,
+              "object": "line_item",
+              "id": "line_item_2rLDf1e77o2mKHjY1",
+              "parent_id": "ord_2rLDf1e77o2mKHjY3",
+              "metadata": {},
+              "antifraud_info": {}
+            }
+          ]
+        },
+        "charges": {
+          "object": "list",
+          "has_more": false,
+          "total": 1,
+          "data": [
+            {
+              "id": "621039d741de2719c7477354",
+              "livemode": false,
+              "created_at": 1645230551,
+              "currency": "MXN",
+              "payment_method": {
+                "service_name": "OxxoPay",
+                "barcode_url": "https://s3.amazonaws.com/cash_payment_barcodes/sandbox_reference.png",
+                "object": "cash_payment",
+                "type": "oxxo",
+                "expires_at": 1647648000,
+                "store_name": "OXXO",
+                "reference": "98000012409960"
+              },
+              "object": "charge",
+              "description": "Payment from order",
+              "status": "paid",
+              "amount": 900,
+              "paid_at": 1645230582,
+              "fee": 41,
+              "customer_id": "",
+              "order_id": "ord_2rLDf1e77o2mKHjY3"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+```
+
+This endpoint is used to get Order data.
+
+### HTTP Request
+
+`GET https://api.dynamicore.io/marketplace/apps/conekta/order/get_order/:id`
