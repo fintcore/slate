@@ -755,7 +755,7 @@ curl --request POST 'https://api.dynamicore.io/marketplace/apps/mifiel/documents
 
 This endpoint is used to create a document that will be signed.
 
-To sign the document you must load the [`widget`](#widget).
+To sign the document you must load the [`widget`](html#widget).
 
 ### HTTP Request
 
@@ -784,6 +784,8 @@ Note: It is not necessary for stakeholders to be registered in Mifiel In order t
 To integrate it in your application, copy this `<script src="https://www.mifiel.com/sign-snippet-v1.0.0.min.js"></script>` and paste it before closing the </ body > tag in your page.
 
 Each signer or reviewer of a document has a unique identifier to access the document. Make sure to insert the stakeholder’s widget id (which you received when creating the document) so that the stakeholders visualize the correct document in the signing widget.
+
+Note: If not the html code block [`click here!`](?html#widget).
 
 ```html
 <div id="mifiel-js"></div>
