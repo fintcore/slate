@@ -747,8 +747,15 @@ curl --request POST 'https://api.dynamicore.io/marketplace/apps/mifiel/documents
   "status": "success",
   "message": {
     "code": 1,
-    "total": 0,
-    "data": []
+    "total": 1,
+    "data": [
+      {
+        "reference": "a6ace6d3-4b9e-4c43-adff-451fd3bd12c1",
+        "id": "424",
+        "type": "client",
+        "field": "acceptance_bc"
+      }
+    ]
   }
 }
 ```
@@ -822,8 +829,175 @@ curl --request GET 'https://api.dynamicore.io/marketplace/apps/mifiel/documents/
   "status": "success",
   "message": {
     "code": 1,
-    "total": 0,
-    "data": []
+    "total": 1,
+    "data": [
+      {
+        "id": "a6ace6d3-4b9e-4c43-adff-451fd3bd12c1",
+        "send_mail": true,
+        "signed_hash": null,
+        "name": null,
+        "signed_by_all": true,
+        "signed": true,
+        "signed_at": "2022-02-25T23:31:19.950Z",
+        "created_at": "2022-02-25T23:27:17.758Z",
+        "burned_at": null,
+        "status": [
+          1,
+          "SIGNED"
+        ],
+        "external_id": "Mifiel-00000000000000020",
+        "remind_every": 0,
+        "expires_at": null,
+        "days_to_expire": null,
+        "created_by": 1233,
+        "state": "completed",
+        "original_hash": "593b66c90b1364d9967e0050d7259872dcf9404a9b612992297d3ccb5760f6af",
+        "manual_close": false,
+        "encrypted": false,
+        "allow_business": true,
+        "file_file_name": "1635453902313.52099.pdf",
+        "archived": false,
+        "krs": false,
+        "owner": {
+          "id": 1233,
+          "email": "ejsouto@liberfin.mx",
+          "name": "Medici & Satoshi SAPI DE CV",
+          "is_company": false
+        },
+        "creator": {
+          "id": 1233,
+          "email": "ejsouto@liberfin.mx",
+          "name": "Medici & Satoshi SAPI DE CV"
+        },
+        "callback_url": "https://connector.dynamicore.io/webhooks/00b51d0d9d714ffabf12a626e335a485",
+        "sign_callback_url": "https://connector.dynamicore.io/webhooks/00b51d0d9d714ffabf12a626e335a485",
+        "already_signed": [
+          {
+            "id": 1233,
+            "email": "ejsouto@liberfin.mx",
+            "name": "Medici & Satoshi SAPI DE CV"
+          }
+        ],
+        "has_not_signed": [],
+        "permissions": {},
+        "file": "/api/v1/documents/a6ace6d3-4b9e-4c43-adff-451fd3bd12c1/file",
+        "file_download": "/api/v1/documents/a6ace6d3-4b9e-4c43-adff-451fd3bd12c1/file?download=true",
+        "file_signed": "/api/v1/documents/a6ace6d3-4b9e-4c43-adff-451fd3bd12c1/file_signed",
+        "file_signed_download": "/api/v1/documents/a6ace6d3-4b9e-4c43-adff-451fd3bd12c1/file_signed?download=true",
+        "file_zipped": "/api/v1/documents/a6ace6d3-4b9e-4c43-adff-451fd3bd12c1/zip",
+        "file_xml": "/api/v1/documents/a6ace6d3-4b9e-4c43-adff-451fd3bd12c1/xml",
+        "signers": [
+          {
+            "id": "33e14ec6-2f3b-42a2-98e5-5a51af2201a3",
+            "name": "ivan",
+            "email": "ivan.peralta@dynamicore.io",
+            "tax_id": "AAA010102AAA",
+            "role": "signer",
+            "field": null,
+            "signed": true,
+            "widget_id": null,
+            "current": false,
+            "last_reminded_at": "2022-02-25T23:27:23.675Z",
+            "features": {
+              "tax_id_validation": true
+            },
+            "customizations": {
+              "show_tos": false,
+              "show_tutorial": false
+            },
+            "sat_auth": false
+          },
+          {
+            "id": "d2c4f8cf-6678-419e-a6df-3407f1651ed2",
+            "name": "carter",
+            "email": "carter.ipb16@gmail.com",
+            "tax_id": "MAS1906288W3",
+            "role": "signer",
+            "field": null,
+            "signed": true,
+            "widget_id": null,
+            "current": false,
+            "last_reminded_at": "2022-02-25T23:27:23.567Z",
+            "features": {
+              "tax_id_validation": true
+            },
+            "customizations": {
+              "show_tos": false,
+              "show_tutorial": false
+            },
+            "sat_auth": false
+          }
+        ],
+        "viewers": [
+          {
+            "id": "434ded55-8cc8-44f2-9d2b-567fdfbe09b8",
+            "email": "ivan.peralta.b@outlook.com",
+            "name": "ipb"
+          }
+        ],
+        "signatures": [
+          {
+            "id": "d2c4f8cf-6678-419e-a6df-3407f1651ed2",
+            "name": "carter",
+            "email": "carter.ipb16@gmail.com",
+            "signed": true,
+            "signed_at": "2022-02-25T23:31:19.932Z",
+            "certificate_number": "1AF2",
+            "certificate": {
+              "subject": {
+                "CN": "Medici & Satoshi SAPI DE CV",
+                "name": "Medici & Satoshi SAPI DE CV",
+                "O": "Medici & Satoshi SAPI DE CV",
+                "C": "MX",
+                "emailAddress": "oswaldo@medici-satoshi.com",
+                "x500UniqueIdentifier": "MAS1906288W3 / LOGO861010GN7",
+                "serialNumber": "LOGO861010HDFPRS08"
+              },
+              "issuer": {
+                "C": "MX",
+                "O": "Mifiel",
+                "CN": "Mifiel Intermediate",
+                "emailAddress": "info@mifiel.com"
+              }
+            },
+            "tax_id": "MAS1906288W3",
+            "signature": "b38da91acd4f9cea35ac5485d5ceb91967a20d27ac0cff84c95c80cc26130fa5a4c9a3a9b48871b75cf09280b854cd8100445f3c70669a46b207dd2d15ed6637966532035560b475622e84db459848764c6155bde941f4cbce0e1655e978c11648316db3dc2a6c26e361063a54d89c0c6f324c1453587c2c47957ec0665d46ebbef3a984022d7b0543f559d002c75ab7dfc6820845a4699392053172466343259b38dc0f86204b8832ad97c8721a5fa71589f3e4035f35efcfde1a6ad9aaf1351733eca1f068292f74bb5086048a5cbd693991e44da00021134bc36d9aa84580d338afa86c38aba6ebeb8423782b8acc31c4592b6a7f1d31331a9e042fd74b98",
+            "user": {
+              "id": 1233,
+              "email": "ejsouto@liberfin.mx",
+              "name": "Medici & Satoshi SAPI DE CV"
+            }
+          },
+          {
+            "id": "33e14ec6-2f3b-42a2-98e5-5a51af2201a3",
+            "name": "ivan",
+            "email": "ivan.peralta@dynamicore.io",
+            "signed": true,
+            "signed_at": "2022-02-25T23:28:10.016Z",
+            "certificate_number": "1AF3",
+            "certificate": {
+              "subject": {
+                "CN": "Racks SAPI",
+                "name": "Racks SAPI",
+                "O": "Racks SAPI",
+                "C": "MX",
+                "emailAddress": "oswaldo@racks.app",
+                "x500UniqueIdentifier": "AAA010102AAA / AAAA010102AAA",
+                "serialNumber": "AAAA010101HDFPRS08"
+              },
+              "issuer": {
+                "C": "MX",
+                "O": "Mifiel",
+                "CN": "Mifiel Intermediate",
+                "emailAddress": "info@mifiel.com"
+              }
+            },
+            "tax_id": "AAA010102AAA",
+            "signature": "2b122d9827e7277b41ca888ad39a6c719292ce53b12ef5e51611919d553856782cb64445e428fcf78356ed9c676691c8270bd9ee769d777f3fcf83d603a10391d61f45d1d291de6f9c058cd38e0db0fd6f970673f45109471084e34bc6bb510d0aa51a849ec472fdf320304a208a44352e678c8666eb4dc55c5204e4939b379a544c240acab4aba43bdfb8f8f91826582f80a8c21c999028045835d7b117398d889bcb5afa37a34c7264c0e34565a5b49eda419ee9858e025de20334c5ad0b8056dad549645fe100af7ab6d9693d542cbb59812052ecdf07621d74aa21e5e35776fb63e249c4732b7140b6905866a298b507b44dd9cd1279c4b4ef4cb83d4513"
+          }
+        ]
+      }
+    ]
   }
 }
 ```
