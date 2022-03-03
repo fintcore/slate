@@ -762,6 +762,8 @@ curl --request POST 'https://api.dynamicore.io/marketplace/apps/mifiel/documents
 
 This endpoint is used to create a document that will be signed.
 
+You must first upload the document [`here`](?shell#upload-documents). So that later it generates the document to sign.
+
 To sign the document you must load the [`widget`](?html#widget).
 
 ### HTTP Request
