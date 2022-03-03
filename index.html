@@ -1194,8 +1194,15 @@ This endpoint retrieves a specific account.
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a6ace6d3-4b9e-4c43-adff-451fd3bd12c1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"424"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"client"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"acceptance_bc"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1316,8 +1323,175 @@ This endpoint retrieves a specific account.
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a6ace6d3-4b9e-4c43-adff-451fd3bd12c1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"send_mail"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"signed_hash"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"signed_by_all"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"signed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"signed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-25T23:31:19.950Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-25T23:27:17.758Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"burned_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"SIGNED"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mifiel-00000000000000020"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"remind_every"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"expires_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"days_to_expire"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="mi">1233</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"completed"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"original_hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"593b66c90b1364d9967e0050d7259872dcf9404a9b612992297d3ccb5760f6af"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"manual_close"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"encrypted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"allow_business"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"file_file_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1635453902313.52099.pdf"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"krs"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1233</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ejsouto@liberfin.mx"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medici &amp; Satoshi SAPI DE CV"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"is_company"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"creator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1233</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ejsouto@liberfin.mx"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medici &amp; Satoshi SAPI DE CV"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"callback_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://connector.dynamicore.io/webhooks/00b51d0d9d714ffabf12a626e335a485"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sign_callback_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://connector.dynamicore.io/webhooks/00b51d0d9d714ffabf12a626e335a485"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"already_signed"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1233</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ejsouto@liberfin.mx"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medici &amp; Satoshi SAPI DE CV"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"has_not_signed"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"permissions"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+        </span><span class="s2">"file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/v1/documents/a6ace6d3-4b9e-4c43-adff-451fd3bd12c1/file"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"file_download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/v1/documents/a6ace6d3-4b9e-4c43-adff-451fd3bd12c1/file?download=true"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"file_signed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/v1/documents/a6ace6d3-4b9e-4c43-adff-451fd3bd12c1/file_signed"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"file_signed_download"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/v1/documents/a6ace6d3-4b9e-4c43-adff-451fd3bd12c1/file_signed?download=true"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"file_zipped"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/v1/documents/a6ace6d3-4b9e-4c43-adff-451fd3bd12c1/zip"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"file_xml"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/v1/documents/a6ace6d3-4b9e-4c43-adff-451fd3bd12c1/xml"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"signers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33e14ec6-2f3b-42a2-98e5-5a51af2201a3"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ivan"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ivan.peralta@dynamicore.io"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"tax_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAA010102AAA"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"signer"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"field"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"signed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"widget_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"current"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_reminded_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-25T23:27:23.675Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"features"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"tax_id_validation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"customizations"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"show_tos"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"show_tutorial"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"sat_auth"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d2c4f8cf-6678-419e-a6df-3407f1651ed2"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"carter"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"carter.ipb16@gmail.com"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"tax_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MAS1906288W3"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"signer"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"field"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"signed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"widget_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"current"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_reminded_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-25T23:27:23.567Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"features"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"tax_id_validation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"customizations"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"show_tos"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"show_tutorial"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"sat_auth"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"viewers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"434ded55-8cc8-44f2-9d2b-567fdfbe09b8"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ivan.peralta.b@outlook.com"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ipb"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"signatures"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d2c4f8cf-6678-419e-a6df-3407f1651ed2"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"carter"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"carter.ipb16@gmail.com"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"signed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"signed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-25T23:31:19.932Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"certificate_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1AF2"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"certificate"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"subject"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"CN"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medici &amp; Satoshi SAPI DE CV"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medici &amp; Satoshi SAPI DE CV"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"O"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medici &amp; Satoshi SAPI DE CV"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"C"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MX"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"emailAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"oswaldo@medici-satoshi.com"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"x500UniqueIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MAS1906288W3 / LOGO861010GN7"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"serialNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LOGO861010HDFPRS08"</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="s2">"issuer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"C"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MX"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"O"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mifiel"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"CN"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mifiel Intermediate"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"emailAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"info@mifiel.com"</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"tax_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MAS1906288W3"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"signature"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b38da91acd4f9cea35ac5485d5ceb91967a20d27ac0cff84c95c80cc26130fa5a4c9a3a9b48871b75cf09280b854cd8100445f3c70669a46b207dd2d15ed6637966532035560b475622e84db459848764c6155bde941f4cbce0e1655e978c11648316db3dc2a6c26e361063a54d89c0c6f324c1453587c2c47957ec0665d46ebbef3a984022d7b0543f559d002c75ab7dfc6820845a4699392053172466343259b38dc0f86204b8832ad97c8721a5fa71589f3e4035f35efcfde1a6ad9aaf1351733eca1f068292f74bb5086048a5cbd693991e44da00021134bc36d9aa84580d338afa86c38aba6ebeb8423782b8acc31c4592b6a7f1d31331a9e042fd74b98"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1233</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ejsouto@liberfin.mx"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medici &amp; Satoshi SAPI DE CV"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33e14ec6-2f3b-42a2-98e5-5a51af2201a3"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ivan"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ivan.peralta@dynamicore.io"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"signed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"signed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-25T23:28:10.016Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"certificate_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1AF3"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"certificate"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"subject"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"CN"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Racks SAPI"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Racks SAPI"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"O"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Racks SAPI"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"C"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MX"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"emailAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"oswaldo@racks.app"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"x500UniqueIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAA010102AAA / AAAA010102AAA"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"serialNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAAA010101HDFPRS08"</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="s2">"issuer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"C"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MX"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"O"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mifiel"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"CN"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mifiel Intermediate"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"emailAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"info@mifiel.com"</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"tax_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAA010102AAA"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"signature"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b122d9827e7277b41ca888ad39a6c719292ce53b12ef5e51611919d553856782cb64445e428fcf78356ed9c676691c8270bd9ee769d777f3fcf83d603a10391d61f45d1d291de6f9c058cd38e0db0fd6f970673f45109471084e34bc6bb510d0aa51a849ec472fdf320304a208a44352e678c8666eb4dc55c5204e4939b379a544c240acab4aba43bdfb8f8f91826582f80a8c21c999028045835d7b117398d889bcb5afa37a34c7264c0e34565a5b49eda419ee9858e025de20334c5ad0b8056dad549645fe100af7ab6d9693d542cbb59812052ecdf07621d74aa21e5e35776fb63e249c4732b7140b6905866a298b507b44dd9cd1279c4b4ef4cb83d4513"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
