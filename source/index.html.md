@@ -1008,32 +1008,6 @@ This endpoint is used to get Document data.
 
 `GET https://api.dynamicore.io/marketplace/apps/mifiel/documents/:id`
 
-## Delete Document
-
-```shell
-curl --request DELETE 'https://api.dynamicore.io/marketplace/apps/mifiel/documents/:id' \
---header 'Authorization: {{hmacAuth}}'
-```
-
-> RESPONSE:
-
-```json
-{
-  "status": "success",
-  "message": {
-    "code": 1,
-    "total": 0,
-    "data": []
-  }
-}
-```
-
-This endpoint is used to delete the document.
-
-### HTTP Request
-
-`DELETE https://api.dynamicore.io/marketplace/apps/mifiel/documents/:id`
-
 # Conekta
 
 ## Create Order
