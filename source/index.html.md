@@ -1019,7 +1019,7 @@ curl --request POST 'https://api.dynamicore.io/marketplace/apps/conekta/order/ne
 --header 'Content-Type: application/json' \
 --data-raw '{
     "account": 326,
-    "operation": 184,
+    "operation": 98,
     "config": {},
     "customer_info": {
       "name": "other prueba"
@@ -1052,7 +1052,19 @@ curl --request POST 'https://api.dynamicore.io/marketplace/apps/conekta/order/ne
         "account": 326,
         "company": 2941,
         "active": "0",
-        "config": {}
+        "config": {},
+        "charge": {
+          "service_name": "OxxoPay",
+          "barcode_url": "https://s3.amazonaws.com/cash_payment_barcodes/sandbox_reference.png",
+          "object": "cash_payment",
+          "type": "oxxo",
+          "expires_at": 1649289600,
+          "store_name": "OXXO",
+          "reference": "98000012463900",
+          "unit_price": 10,
+          "currency": "MXN",
+          "quantity": 1
+        }
       }
     ]
   }
@@ -1070,10 +1082,10 @@ This endpoint is used to create order.
 | Parameter | Required | Type   | Description                    | Example    |
 | --------- | -------- | ------ | ------------------------------ | ---------- |
 | account    |     Y    | Integer | Account              | 1          |
-| operation     |     Y    | Integer | Operation   | 184 | 
+| operation     |     O    | Integer | Operation   | 184 | 
 | customer_info       |     Y    | Object | Object with customer information. Telephone and email is optional     | {"name": "Demo", "phone":"", "email":""} |
 | items     |     Y    | Object | Object with item information. The price per unit expressed in cents.            | { "name": "Box of Cohiba S1s", "unit_price": 1000, "quantity": 1 }         |
-| payment_method      |     Y    | Object | Object with payment method information         | { "type": "oxxo_cash" }|
+| payment_method      |     O    | Object | Object with payment method information         | { "type": "oxxo_cash" }|
 | config    |     O    | Object | Config              | {}          |
 
 ## Get Order
@@ -1167,3 +1179,52 @@ This endpoint is used to get Order data.
 ### HTTP Request
 
 `GET https://api.dynamicore.io/marketplace/apps/conekta/order/get_order/:id`
+
+## Get Reference Pending
+
+```shell
+curl --request GET 'https://api.dynamicore.io/marketplace/apps/conekta/order/get_order_pending/:account' \
+--header 'Authorization: {{hmacAuth}}'
+```
+
+> RESPONSE:
+
+```json
+{
+  "status": "success",
+  "message": {
+    "code": 1,
+    "total": 1,
+    "data": [
+      {
+        "id": "ord_2rQPaj3neXQQmH7fp",
+        "channel": "oxxo_cash",
+        "amount": 1000,
+        "operation": 184,
+        "account": 326,
+        "company": 2941,
+        "active": "0",
+        "config": {},
+        "charge": {
+          "service_name": "OxxoPay",
+          "barcode_url": "https://s3.amazonaws.com/cash_payment_barcodes/sandbox_reference.png",
+          "object": "cash_payment",
+          "type": "oxxo",
+          "expires_at": 1649289600,
+          "store_name": "OXXO",
+          "reference": "98000012463900",
+          "unit_price": 10,
+          "currency": "MXN",
+          "quantity": 1
+        }
+      }
+    ]
+  }
+}
+```
+
+This endpoint is used to get pending reference data.
+
+### HTTP Request
+
+`GET https://api.dynamicore.io/marketplace/apps/conekta/order/get_order_pending/:account`
