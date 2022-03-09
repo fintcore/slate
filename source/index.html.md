@@ -2485,6 +2485,41 @@ This endpoint is used to get messages data from credit report.
 
 `GET 'https://api.dynamicore.io/marketplace/apps/cc/rcficoscore/mensajes/:folioConsulta`
 
+## Get Score
+
+```shell
+curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcficoscore/scores/:folioConsulta' \
+--header 'Authorization: {{hmacAuth}}'
+```
+
+> RESPONSE:
+
+```json
+{
+  "status": "success",
+  "message": {
+    "scores": [
+      {
+        "nombreScore": "FICO",
+        "valor": 546,
+        "razones": [
+          "D8",
+          "E4",
+          "K0",
+          "D2"
+        ]
+      }
+    ]
+  }
+}
+```
+
+This endpoint is used to get scores data from credit report.
+
+### HTTP Request
+
+`GET 'https://api.dynamicore.io/marketplace/apps/cc/rcficoscore/scores/:folioConsulta`
+
 # Reporte de Crédito Consolidado + FICO® Score
 
 ## Get the Consolidated Credit Report + FICO Score
@@ -2822,6 +2857,41 @@ This endpoint is used to get messages data from consolidated credit report.
 ### HTTP Request
 
 `GET 'https://api.dynamicore.io/marketplace/apps/cc/rccficoscore/mensajes/:folioConsulta`
+
+## Get Score
+
+```shell
+curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rccficoscore/scores/:folioConsulta' \
+--header 'Authorization: {{hmacAuth}}'
+```
+
+> RESPONSE:
+
+```json
+{
+  "status": "success",
+  "message": {
+    "scores": [
+      {
+        "nombreScore": "FICO",
+        "valor": 720,
+        "razones": [
+          "D2",
+          "P9",
+          "K0",
+          "E0"
+        ]
+      }
+    ]
+  }
+}
+```
+
+This endpoint is used to get scores data from credit report.
+
+### HTTP Request
+
+`GET 'https://api.dynamicore.io/marketplace/apps/cc/rccficoscore/scores/:folioConsulta`
 
 # Reporte de Crédito Consolidado + FICO® Score y PLD Check®
 
@@ -3171,3 +3241,38 @@ This endpoint is used to get messages data from consolidated credit report.
 ### HTTP Request
 
 `GET 'https://api.dynamicore.io/marketplace/apps/cc/rccficoscorepld/mensajes/:folioConsulta`
+
+## Get Score
+
+```shell
+curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rccficoscorepld/scores/:folioConsulta' \
+--header 'Authorization: {{hmacAuth}}'
+```
+
+> RESPONSE:
+
+```json
+{
+  "status": "success",
+  "message": {
+    "scores": [
+      {
+        "nombreScore": "FICO",
+        "valor": 650,
+        "razones": [
+          "D2",
+          "P9",
+          "K0",
+          "E0"
+        ]
+      }
+    ]
+  }
+}
+```
+
+This endpoint is used to get scores data from credit report.
+
+### HTTP Request
+
+`GET 'https://api.dynamicore.io/marketplace/apps/cc/rccficoscorepld/scores/:folioConsulta`
