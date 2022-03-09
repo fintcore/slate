@@ -331,6 +331,9 @@
                   <li>
                     <a href="#get-order" class="toc-h2 toc-link" data-title="Get Order">Get Order</a>
                   </li>
+                  <li>
+                    <a href="#get-reference-pending" class="toc-h2 toc-link" data-title="Get Reference Pending">Get Reference Pending</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1513,7 +1516,7 @@ This endpoint retrieves a specific account.
 --header <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 --data-raw <span class="s1">'{
     "account": 326,
-    "operation": 184,
+    "operation": 98,
     "config": {},
     "customer_info": {
       "name": "other prueba"
@@ -1545,7 +1548,19 @@ This endpoint retrieves a specific account.
         </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="mi">326</span><span class="p">,</span><span class="w">
         </span><span class="s2">"company"</span><span class="p">:</span><span class="w"> </span><span class="mi">2941</span><span class="p">,</span><span class="w">
         </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"config"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+        </span><span class="s2">"config"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+        </span><span class="s2">"charge"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"service_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OxxoPay"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"barcode_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/cash_payment_barcodes/sandbox_reference.png"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cash_payment"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"oxxo"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"expires_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1649289600</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"store_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OXXO"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"98000012463900"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MXN"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -1573,7 +1588,7 @@ This endpoint retrieves a specific account.
 </tr>
 <tr>
 <td>operation</td>
-<td>Y</td>
+<td>O</td>
 <td>Integer</td>
 <td>Operation</td>
 <td>184</td>
@@ -1594,7 +1609,7 @@ This endpoint retrieves a specific account.
 </tr>
 <tr>
 <td>payment_method</td>
-<td>Y</td>
+<td>O</td>
 <td>Object</td>
 <td>Object with payment method information</td>
 <td>{ &quot;type&quot;: &quot;oxxo_cash&quot; }</td>
@@ -1691,6 +1706,47 @@ This endpoint retrieves a specific account.
 <p>This endpoint is used to get Order data.</p>
 <h3 id='http-request-21'>HTTP Request</h3>
 <p><code>GET https://api.dynamicore.io/marketplace/apps/conekta/order/get_order/:id</code></p>
+<h2 id='get-reference-pending'>Get Reference Pending</h2><pre class="highlight shell tab-shell"><code>curl --request GET <span class="s1">'https://api.dynamicore.io/marketplace/apps/conekta/order/get_order_pending/:account'</span> <span class="se">\</span>
+--header <span class="s1">'Authorization: {{hmacAuth}}'</span>
+</code></pre>
+<blockquote>
+<p>RESPONSE:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ord_2rQPaj3neXQQmH7fp"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"channel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"oxxo_cash"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"operation"</span><span class="p">:</span><span class="w"> </span><span class="mi">184</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="mi">326</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"company"</span><span class="p">:</span><span class="w"> </span><span class="mi">2941</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"config"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+        </span><span class="s2">"charge"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"service_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OxxoPay"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"barcode_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/cash_payment_barcodes/sandbox_reference.png"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cash_payment"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"oxxo"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"expires_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1649289600</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"store_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OXXO"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"98000012463900"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MXN"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint is used to get pending reference data.</p>
+<h3 id='http-request-22'>HTTP Request</h3>
+<p><code>GET https://api.dynamicore.io/marketplace/apps/conekta/order/get_order_pending/:account</code></p>
 <h1 id='errors'>Errors</h1>
 <aside class="notice">
 DynamiCore uses conventional HTTP response codes to indicate the success or failure of an API request. In general: Codes in the 2xx range indicate success. Codes in the 4xx range indicate an error that failed given the information provided (e.g., a required parameter was omitted, a charge failed, etc.). Codes in the 5xx range indicate an error with Ictineo servers (these are rare).
