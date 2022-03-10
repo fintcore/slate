@@ -86,6 +86,15 @@ under the License.
                 <% h1[:children].each do |h2| %>
                   <li>
                     <a href="#<%= h2[:id] %>" class="toc-h2 toc-link" data-title="<%= h2[:title] %>"><%= h2[:content] %></a>
+                    <% if h2[:children].length > 0 %>
+                      <ol class="toc-list-h2">
+                        <% h2[:children].each do |h3| %>
+                          <li>
+                            <a href="#<%= h3[:id] %>" class="toc-h2 toc-link" data-title="<%= h3[:title] %>"><%= h3[:content] %></a>
+                          </li>
+                        <% end %>
+                      </ol>
+                    <% end %>
                   </li>
                 <% end %>
               </ul>

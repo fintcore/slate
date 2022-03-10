@@ -113,11 +113,11 @@ curl "https://api.dynamicore.io/v1/clients/types"
 
 This endpoint is used to create client types
 
-### HTTP Request
+**HTTP Request** 
 
 `POST https://api.dynamicore.io/v1/clients/types`
 
-### Parameters
+**Parameters**
 
 | Parameter     | Required | Type   | Description                | Example                                             |
 | ------------- | -------- | ------ | -------------------------- | --------------------------------------------------- |
@@ -148,11 +148,11 @@ curl "https://api.dynamicore.io/v1/products/types"
 
 This endpoint is used to create product types
 
-### HTTP Request
+**HTTP Request** 
 
 `POST https://api.dynamicore.io/v1/products/types`
 
-### Parameters
+**Parameters**
 
 | Parameter     | Required | Type   | Description                 | Example                                             |
 | ------------- | -------- | ------ | --------------------------- | --------------------------------------------------- |
@@ -183,7 +183,7 @@ curl "https://api.dynamicore.io/v1/emails/types"
 
 This endpoint retrieves a specific account.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET https://api.dynamicore.io/v1/emails/types`
 
@@ -219,7 +219,7 @@ curl "https://api.dynamicore.io/v1/catalog/fields/client"
 
 This endpoint retrieves a catalog of client templates.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET https://api.dynamicore.io/v1/catalog/fields/client`
 
@@ -246,7 +246,7 @@ curl "https://api.dynamicore.io/v1/catalog/fields/product"
 
 This endpoint retrieves a catalog of product templates.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET https://api.dynamicore.io/v1/catalog/fields/product`
 
@@ -280,11 +280,11 @@ curl https://api.dynamicore.io/private/clients \
 
 This endpoint is used to create client.
 
-### HTTP Request
+**HTTP Request** 
 
 `POST https://api.dynamicore.io/private/clients`
 
-### Parameters
+**Parameters**
 
 | Parameter      | Required | Type   | Description         | Example          |
 | -------------- | -------- | ------ | ------------------- | ---------------- |
@@ -322,11 +322,11 @@ curl https://api.dynamicore.io/private/clients \
 
 This endpoint is used to update client.
 
-### HTTP Request
+**HTTP Request** 
 
 `PUT https://api.dynamicore.io/private/clients`
 
-### Parameters
+**Parameters**
 
 | Parameter      | Required | Type   | Description         | Example          |
 | -------------- | -------- | ------ | ------------------- | ---------------- |
@@ -360,11 +360,11 @@ curl https://api.dynamicore.io/private/clients \
 
 This endpoint is used to list of clients.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET https://api.dynamicore.io/private/clients`
 
-### Query Parameters
+**Query Parameters**
 
 | Parameter | Required | Type   | Description       | Example |
 | --------- | -------- | ------ | ----------------- | ------- |
@@ -394,11 +394,11 @@ curl https://api.dynamicore.io/files/users/upload/:client_id/:pii[acta_constitut
 
 This endpoint is used to upload documents to client.
 
-### HTTP Request
+**HTTP Request** 
 
 `POST https://api.dynamicore.io/files/users/upload/:client_id/:pii[acta_constitutiva]`
 
-### FormData Parameters
+**FormData Parameters**
 
 | Parameter      | Required | Type             | Description         | Example                        |
 | -------------- | -------- | ---------------- | ------------------- | ------------------------------ |
@@ -432,7 +432,7 @@ curl https://api.dynamicore.io/v1/clients/:client_id/sat \
 
 This endpoint is used to get SAT data.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET https://api.dynamicore.io/v1/clients/:client_id/sat`
 
@@ -459,7 +459,7 @@ curl https://api.dynamicore.io/v1/clients/:client_id/score \
 
 This endpoint is used to get Credit Score.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET https://api.dynamicore.io/v1/clients/:client_id/score`
 
@@ -492,11 +492,11 @@ curl https://api.dynamicore.io/v1/accounts \
 
 This endpoint is used to create account.
 
-### HTTP Request
+**HTTP Request** 
 
 `POST https://api.dynamicore.io/v1/accounts`
 
-### Parameters
+**Parameters**
 
 | Parameter | Required | Type   | Description                                              | Example |
 | --------- | -------- | ------ | -------------------------------------------------------- | ------- |
@@ -530,11 +530,11 @@ curl https://api.dynamicore.io/v1/accounts \
 
 This endpoint is used to customer accounts.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET https://api.dynamicore.io/v1/accounts`
 
-### Query Parameters
+**Query Parameters**
 
 | Parameter | Required | Type   | Description        | Example |
 | --------- | -------- | ------ | ------------------ | ------- |
@@ -564,7 +564,7 @@ curl https://api.dynamicore.io/v1/accounts/:account_id/transactions \
 
 This endpoint is used to get account transactions.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET https://api.dynamicore.io/v1/accounts/:account_id/transactions`
 
@@ -591,7 +591,7 @@ curl https://api.dynamicore.io/v1/accounts/:account_id/payments \
 
 This endpoint is used to get account payments.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET https://api.dynamicore.io/v1/accounts/:account_id/payments`
 
@@ -627,11 +627,11 @@ curl https://api.dynamicore.io/internal/sat/sat_key \
 
 This endpoint is used to keys for SAT consult.
 
-### HTTP Request
+**HTTP Request** 
 
 `POST https://api.dynamicore.io/internal/sat/sat_key`
 
-### Parameters
+**Parameters**
 
 | Parameter | Required | Type   | Description                                              | Example |
 | --------- | -------- | ------ | -------------------------------------------------------- | ------- |
@@ -667,11 +667,11 @@ curl https://api.dynamicore.io/internal/sat/sat_key \
 
 This endpoint is used to sync of the SAT data. Its execute is async to obtain data you should used the endpoint Get Data.
 
-### HTTP Request
+**HTTP Request** 
 
 `POST https://api.dynamicore.io/internal/sat/sat_key`
 
-### Parameters
+**Parameters**
 
 | Parameter | Required | Type   | Description                    | Example    |
 | --------- | -------- | ------ | ------------------------------ | ---------- |
@@ -702,11 +702,11 @@ curl https://api.dynamicore.io/private/sat/data \
 
 This endpoint is used to get data of SAT.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET https://api.dynamicore.io/private/sat/data`
 
-### Query Parameters
+**Query Parameters**
 
 | Parameter | Required | Type   | Description                    | Example    |
 | --------- | -------- | ------ | ------------------------------ | ---------- |
@@ -765,11 +765,11 @@ This endpoint is used to create a document that will be signed.
 
 To sign the document you must load the [`widget`](?html#widget).
 
-### HTTP Request
+**HTTP Request** 
 
 `POST https://api.dynamicore.io/marketplace/apps/mifiel/documents`
 
-### Parameters
+**Parameters**
 
 | Parameter      | Required | Type   | Description         | Example          |
 | -------------- | -------- | ------ | ------------------- | ---------------- |
@@ -1005,7 +1005,7 @@ curl --request GET 'https://api.dynamicore.io/marketplace/apps/mifiel/documents/
 
 This endpoint is used to get Document data.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET https://api.dynamicore.io/marketplace/apps/mifiel/documents/:id`
 
@@ -1073,11 +1073,11 @@ curl --request POST 'https://api.dynamicore.io/marketplace/apps/conekta/order/ne
 
 This endpoint is used to create order.
 
-### HTTP Request
+**HTTP Request** 
 
 `POST https://api.dynamicore.io/marketplace/apps/conekta/order/new_order`
 
-### Query Parameters
+**Query Parameters**
 
 | Parameter | Required | Type   | Description                    | Example    |
 | --------- | -------- | ------ | ------------------------------ | ---------- |
@@ -1176,7 +1176,7 @@ curl --request GET 'https://api.dynamicore.io/marketplace/apps/conekta/order/get
 
 This endpoint is used to get Order data.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET https://api.dynamicore.io/marketplace/apps/conekta/order/get_order/:id`
 
@@ -1225,15 +1225,15 @@ curl --request GET 'https://api.dynamicore.io/marketplace/apps/conekta/order/get
 
 This endpoint is used to get pending reference data.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET https://api.dynamicore.io/marketplace/apps/conekta/order/get_order_pending/:account`
 
 # Círculo De Crédito
 
-# Reporte de crédito
+## Reporte de crédito
 
-## Get the Credit Report
+### Get the Credit Report
 
 ```shell
 curl --location --request POST 'https://api.dynamicore.io/marketplace/apps/cc/rc' \
@@ -1291,11 +1291,11 @@ curl --location --request POST 'https://api.dynamicore.io/marketplace/apps/cc/rc
 
 This endpoint is used to get the credit report data
 
-### HTTP Request
+**HTTP Request** 
 
 `POST https://api.dynamicore.io/marketplace/apps/cc/rc`
 
-### Parameters
+**Parameters**
 
 | Parameter      | Required | Type   | Description         | Example          |
 | -------------- | -------- | ------ | ------------------- | ---------------- |
@@ -1307,7 +1307,7 @@ This endpoint is used to get the credit report data
 | nacionalidad   | Y        | String | Number of days the document expires  | MX |
 | domicilio    | Y        | Object | Data of the address of the person to consult.  | { "direccion": "HIDALGO 32", "coloniaPoblacion": "CENTRO", "delegacionMunicipio": "LA BARCA", "ciudad": "BENITO JUAREZ", "estado": "JAL", "CP": "47917", "fechaResidencia": "2018-12-21", "numeroTelefono": "string", "tipoDomicilio": "C", "tipoAsentamiento": 28} |
 
-## Get Credits
+### Get Credits
 
 ```shell
 curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rc/creditos/:folioConsulta' \
@@ -1371,11 +1371,11 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rc/
 
 This endpoint is used to get credit data from credit report.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET 'https://api.dynamicore.io/marketplace/apps/cc/rc/creditos/:folioConsulta`
 
-## Get Addresses
+### Get Addresses
 
 ```shell
 curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rc/domicilios/:folioConsulta' \
@@ -1434,11 +1434,11 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rc/
 
 This endpoint is used to get addresses data from credit report.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET https://api.dynamicore.io/marketplace/apps/cc/rc/domicilios/:folioConsulta`
 
-## Get Employments
+### Get Employments
 
 ```shell
 curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rc/empleos/:folioConsulta' \
@@ -1477,11 +1477,11 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rc/
 
 This endpoint is used to get employments data from credit report.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET https://api.dynamicore.io/marketplace/apps/cc/rc/empleos/:folioConsulta`
 
-## Get Consultations
+### Get Consultations
 
 ```shell
 curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rc/consultas/:folioConsulta' \
@@ -1518,11 +1518,11 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rc/
 
 This endpoint is used to get consultations data from credit report.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET https://api.dynamicore.io/marketplace/apps/cc/rc/consultas/:folioConsulta`
 
-## Get Messages
+### Get Messages
 
 ```shell
 curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rc/mensajes/:folioConsulta' \
@@ -1547,13 +1547,13 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rc/
 
 This endpoint is used to get messages data from credit report.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET 'https://api.dynamicore.io/marketplace/apps/cc/rc/mensajes/:folioConsulta`
 
-# Reporte de Crédito Consolidado
+## Reporte de Crédito Consolidado
 
-## Get the Consolidated Credit Report
+### Get the Consolidated Credit Report
 
 ```shell
 curl --location --request POST 'https://api.dynamicore.io/marketplace/apps/cc/rcc' \
@@ -1605,11 +1605,11 @@ curl --location --request POST 'https://api.dynamicore.io/marketplace/apps/cc/rc
 
 This endpoint is used to get the consolidated credit report data
 
-### HTTP Request
+**HTTP Request** 
 
 `POST https://api.dynamicore.io/marketplace/apps/cc/rcc`
 
-### Parameters
+**Parameters**
 
 | Parameter      | Required | Type   | Description         | Example          |
 | -------------- | -------- | ------ | ------------------- | ---------------- |
@@ -1621,7 +1621,7 @@ This endpoint is used to get the consolidated credit report data
 | nacionalidad   | Y        | String | Number of days the document expires  | MX |
 | domicilio    | Y        | Object | Data of the address of the person to consult.  | {"direccion": "PASADISO ENCONTRADO 168", "coloniaPoblacion": "CHALMA DE GUADALUPE", "delegacionMunicipio": "GUSTAVO A MADERO", "ciudad": "CIUDAD DE MÉXICO", "estado": "CDMX", "CP": "07210" } |
 
-## Get Credits
+### Get Credits
 
 ```shell
 curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcc/creditos/:folioConsulta' \
@@ -1703,11 +1703,11 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcc
 
 This endpoint is used to get credit data from consolidated credit report.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET 'https://api.dynamicore.io/marketplace/apps/cc/rcc/creditos/:folioConsulta`
 
-## Get Addresses
+### Get Addresses
 
 ```shell
 curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcc/domicilios/:folioConsulta' \
@@ -1751,11 +1751,11 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcc
 
 This endpoint is used to get addresses data from consolidated credit report.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET https://api.dynamicore.io/marketplace/apps/cc/rcc/domicilios/:folioConsulta`
 
-## Get Employments
+### Get Employments
 
 ```shell
 curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcc/empleos/:folioConsulta' \
@@ -1794,11 +1794,11 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcc
 
 This endpoint is used to get employments data from consolidated credit report.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET https://api.dynamicore.io/marketplace/apps/cc/rcc/empleos/:folioConsulta`
 
-## Get Consultations
+### Get Consultations
 
 ```shell
 curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcc/consultas/:folioConsulta' \
@@ -1834,11 +1834,11 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcc
 
 This endpoint is used to get consultations data from consolidated credit report.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET https://api.dynamicore.io/marketplace/apps/cc/rcc/consultas/:folioConsulta`
 
-## Get Messages
+### Get Messages
 
 ```shell
 curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcc/mensajes/:folioConsulta' \
@@ -1863,13 +1863,13 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcc
 
 This endpoint is used to get messages data from consolidated credit report.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET 'https://api.dynamicore.io/marketplace/apps/cc/rcc/mensajes/:folioConsulta`
 
-# Reporte de Crédito Consolidado de Personas Morales
+## Reporte de Crédito Consolidado de Personas Morales
 
-## Get the Consolidated Credit Report Personas Morales
+### Get the Consolidated Credit Report Personas Morales
 
 ```shell
 curl --location --request POST 'https://api.dynamicore.io/marketplace/apps/cc/rccpm' \
@@ -2089,20 +2089,20 @@ curl --location --request POST 'https://api.dynamicore.io/marketplace/apps/cc/rc
 
 This endpoint is used to get the consolidated credit report data
 
-### HTTP Request
+**HTTP Request** 
 
 `POST https://api.dynamicore.io/marketplace/apps/cc/rccpm`
 
-### Parameters
+**Parameters**
 
 | Parameter      | Required | Type   | Description         | Example          |
 | -------------- | -------- | ------ | ------------------- | ---------------- |
 | folioOtorgante             | Y        | String | Query identifier, data entered by the user.        | 1000001               |
 | persona           | Y        | Object | General data of the person to consult.                | { "RFC": "EDC930121E01", "nombre": "RESTAURANTE SA DE CV", "domicilio": { "direccion": "AV. PASEO DE LA REFORMA 01", "coloniaPoblacion": "GUERRERO", "delegacionMunicipio": "CUAUHTEMOC", "ciudad": "CIUDAD DE MÉXICO", "estado": "AGS", "CP": "68370", "pais": "MX" }}           |
 
-# Reporte de Crédito con FICO® Score
+## Reporte de Crédito con FICO® Score
 
-## Get the Credit Report with FICO Score
+### Get the Credit Report with FICO Score
 
 ```shell
 curl --location --request POST 'https://api.dynamicore.io/marketplace/apps/cc/rcficoscore' \
@@ -2168,11 +2168,11 @@ curl --location --request POST 'https://api.dynamicore.io/marketplace/apps/cc/rc
 
 This endpoint is used to get the credit report data
 
-### HTTP Request
+**HTTP Request** 
 
 `POST https://api.dynamicore.io/marketplace/apps/cc/rcficoscore`
 
-### Parameters
+**Parameters**
 
 | Parameter      | Required | Type   | Description         | Example          |
 | -------------- | -------- | ------ | ------------------- | ---------------- |
@@ -2184,7 +2184,7 @@ This endpoint is used to get the credit report data
 | nacionalidad   | Y        | String | Number of days the document expires  | MX |
 | domicilio    | Y        | Object | Data of the address of the person to consult.  | { "direccion": "INSURGENTES SUR 1001", "coloniaPoblacion": "INSURGENTES SUR", "delegacionMunicipio": "CIUDAD DE MEXICO", "ciudad": "CIUDAD DE MEXICO", "estado": "CDMX", "CP": "11230"} |
 
-## Get Credits
+### Get Credits
 
 ```shell
 curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcficoscore/creditos/:folioConsulta' \
@@ -2243,52 +2243,6 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcf
           "fechaMRCAN": "2016-03-16",
           "fechaMACAN": "2016-03-16"
         }
-      },
-      {
-        "fechaActualizacion": "2016-05-30",
-        "registroImpugnado": 0,
-        "cuentaActual": "000101480000036741",
-        "nombreOtorgante": "REPORTE DE CREDITO ESPECIAL",
-        "tipoCuenta": "F",
-        "tipoResponsabilidad": "I",
-        "tipoCredito": "PP",
-        "claveUnidadMonetaria": "MX",
-        "valorActivoValuacion": 136,
-        "numeroPagos": 0,
-        "frecuenciaPagos": "S",
-        "montoPagar": 3,
-        "fechaAperturaCuenta": "2005-11-14",
-        "fechaUltimoPago": "2007-06-04",
-        "fechaUltimaCompra": "2005-11-14",
-        "fechaCierreCuenta": "0001-01-01",
-        "fechaReporte": "2016-05-30",
-        "ultimaFechaSaldoCero": "0001-01-01",
-        "garantia": "",
-        "creditoMaximo": 258,
-        "saldoActual": 12,
-        "limiteCredito": 0,
-        "saldoVencido": 0,
-        "numeroPagosVencidos": 0,
-        "pagoActual": " V",
-        "historicoPagos": " V",
-        "fechaRecienteHistoricoPagos": "2016-05-30",
-        "fechaAntiguaHistoricoPagos": "2016-05-23",
-        "clavePrevencion": "AD",
-        "peorAtraso": 0,
-        "fechaPeorAtraso": "",
-        "montoUltimoPago": 0,
-        "totalPagosReportados": 0,
-        "saldoVencidoPeorAtraso": 0,
-        "CAN": {
-          "identificadorCAN": "01",
-          "prelacionOrigen": 1,
-          "prelacionActual": 1,
-          "fechaAperturaCAN": "2016-03-16",
-          "fechaCancelacionCAN": "2016-03-16",
-          "historicoCAN": "1",
-          "fechaMRCAN": "2016-03-16",
-          "fechaMACAN": "2016-03-16"
-        }
       }
     ]
   }
@@ -2297,11 +2251,11 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcf
 
 This endpoint is used to get credit data from credit report.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET 'https://api.dynamicore.io/marketplace/apps/cc/rcficoscore/creditos/:folioConsulta`
 
-## Get Addresses
+### Get Addresses
 
 ```shell
 curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcficoscore/domicilios/:folioConsulta' \
@@ -2360,11 +2314,11 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcf
 
 This endpoint is used to get addresses data from credit report.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET https://api.dynamicore.io/marketplace/apps/cc/rcficoscore/domicilios/:folioConsulta`
 
-## Get Employments
+### Get Employments
 
 ```shell
 curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcficoscore/empleos/:folioConsulta' \
@@ -2403,11 +2357,11 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcf
 
 This endpoint is used to get employments data from credit report.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET https://api.dynamicore.io/marketplace/apps/cc/rcficoscore/empleos/:folioConsulta`
 
-## Get Consultations
+### Get Consultations
 
 ```shell
 curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcficoscore/consultas/:folioConsulta' \
@@ -2452,11 +2406,11 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcf
 
 This endpoint is used to get consultations data from credit report.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET https://api.dynamicore.io/marketplace/apps/cc/rcficoscore/consultas/:folioConsulta`
 
-## Get Messages
+### Get Messages
 
 ```shell
 curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcficoscore/mensajes/:folioConsulta' \
@@ -2481,11 +2435,11 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcf
 
 This endpoint is used to get messages data from credit report.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET 'https://api.dynamicore.io/marketplace/apps/cc/rcficoscore/mensajes/:folioConsulta`
 
-## Get Score
+### Get Score
 
 ```shell
 curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcficoscore/scores/:folioConsulta' \
@@ -2516,13 +2470,13 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcf
 
 This endpoint is used to get scores data from credit report.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET 'https://api.dynamicore.io/marketplace/apps/cc/rcficoscore/scores/:folioConsulta`
 
-# Reporte de Crédito Consolidado + FICO® Score
+## Reporte de Crédito Consolidado + FICO® Score
 
-## Get the Consolidated Credit Report + FICO Score
+### Get the Consolidated Credit Report + FICO Score
 
 ```shell
 curl --location --request POST 'https://api.dynamicore.io/marketplace/apps/cc/rccficoscore' \
@@ -2585,11 +2539,11 @@ curl --location --request POST 'https://api.dynamicore.io/marketplace/apps/cc/rc
 
 This endpoint is used to get the credit report data
 
-### HTTP Request
+**HTTP Request** 
 
 `POST https://api.dynamicore.io/marketplace/apps/cc/rccficoscore`
 
-### Parameters
+**Parameters**
 
 | Parameter      | Required | Type   | Description         | Example          |
 | -------------- | -------- | ------ | ------------------- | ---------------- |
@@ -2601,7 +2555,7 @@ This endpoint is used to get the credit report data
 | nacionalidad   | Y        | String | Number of days the document expires  | MX |
 | domicilio    | Y        | Object | Data of the address of the person to consult.  | { "direccion": "PASADISO ENCONTRADO 58", "coloniaPoblacion": "MONTEVIDEO", "delegacionMunicipio": "GUSTAVO A MADERO", "ciudad": "CIUDAD DE MÉXICO", "estado": "CDMX", "CP": "07730" } |
 
-## Get Credits
+### Get Credits
 
 ```shell
 curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rccficoscore/creditos/:folioConsulta' \
@@ -2683,11 +2637,11 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcc
 
 This endpoint is used to get credit data from credit report.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET 'https://api.dynamicore.io/marketplace/apps/cc/rccficoscore/creditos/:folioConsulta`
 
-## Get Addresses
+### Get Addresses
 
 ```shell
 curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rccficoscore/domicilios/:folioConsulta' \
@@ -2731,11 +2685,11 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcc
 
 This endpoint is used to get addresses data from credit report.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET https://api.dynamicore.io/marketplace/apps/cc/rccficoscore/domicilios/:folioConsulta`
 
-## Get Employments
+### Get Employments
 
 ```shell
 curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rccficoscore/empleos/:folioConsulta' \
@@ -2774,11 +2728,11 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcc
 
 This endpoint is used to get employments data from credit report.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET https://api.dynamicore.io/marketplace/apps/cc/rccficoscore/empleos/:folioConsulta`
 
-## Get Consultations
+### Get Consultations
 
 ```shell
 curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rccficoscore/consultas/:folioConsulta' \
@@ -2821,11 +2775,11 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcc
 
 This endpoint is used to get consultations data from credit report.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET https://api.dynamicore.io/marketplace/apps/cc/rccficoscore/consultas/:folioConsulta`
 
-## Get Messages
+### Get Messages
 
 ```shell
 curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rccficoscore/mensajes/:folioConsulta' \
@@ -2854,11 +2808,11 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcc
 
 This endpoint is used to get messages data from consolidated credit report.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET 'https://api.dynamicore.io/marketplace/apps/cc/rccficoscore/mensajes/:folioConsulta`
 
-## Get Score
+### Get Score
 
 ```shell
 curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rccficoscore/scores/:folioConsulta' \
@@ -2889,13 +2843,13 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcc
 
 This endpoint is used to get scores data from credit report.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET 'https://api.dynamicore.io/marketplace/apps/cc/rccficoscore/scores/:folioConsulta`
 
-# Reporte de Crédito Consolidado + FICO® Score y PLD Check®
+## Reporte de Crédito Consolidado + FICO® Score y PLD Check®
 
-## Get the Consolidated Credit Report + FICO Score and PLD Check
+### Get the Consolidated Credit Report + FICO Score and PLD Check
 
 ```shell
 curl --location --request POST 'https://api.dynamicore.io/marketplace/apps/cc/rccficoscorepld' \
@@ -2969,11 +2923,11 @@ curl --location --request POST 'https://api.dynamicore.io/marketplace/apps/cc/rc
 
 This endpoint is used to get the credit report data
 
-### HTTP Request
+**HTTP Request** 
 
 `POST https://api.dynamicore.io/marketplace/apps/cc/rccficoscorepld`
 
-### Parameters
+**Parameters**
 
 | Parameter      | Required | Type   | Description         | Example          |
 | -------------- | -------- | ------ | ------------------- | ---------------- |
@@ -2985,7 +2939,7 @@ This endpoint is used to get the credit report data
 | nacionalidad   | Y        | String | Number of days the document expires  | MX |
 | domicilio    | Y        | Object | Data of the address of the person to consult.  | { "direccion": "PASADISO ENCONTRADO 168", "coloniaPoblacion": "CHALMA DE GUADALUPE", "delegacionMunicipio": "GUSTAVO A MADERO", "ciudad": "CIUDAD DE MÉXICO", "estado": "CDMX", "CP": "07210" } |
 
-## Get Credits
+### Get Credits
 
 ```shell
 curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rccficoscorepld/creditos/:folioConsulta' \
@@ -3067,11 +3021,11 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcc
 
 This endpoint is used to get credit data from credit report.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET 'https://api.dynamicore.io/marketplace/apps/cc/rccficoscorepld/creditos/:folioConsulta`
 
-## Get Addresses
+### Get Addresses
 
 ```shell
 curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rccficoscorepld/domicilios/:folioConsulta' \
@@ -3115,11 +3069,11 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcc
 
 This endpoint is used to get addresses data from credit report.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET https://api.dynamicore.io/marketplace/apps/cc/rccficoscorepld/domicilios/:folioConsulta`
 
-## Get Employments
+### Get Employments
 
 ```shell
 curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rccficoscorepld/empleos/:folioConsulta' \
@@ -3158,11 +3112,11 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcc
 
 This endpoint is used to get employments data from credit report.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET https://api.dynamicore.io/marketplace/apps/cc/rccficoscorepld/empleos/:folioConsulta`
 
-## Get Consultations
+### Get Consultations
 
 ```shell
 curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rccficoscorepld/consultas/:folioConsulta' \
@@ -3205,11 +3159,11 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcc
 
 This endpoint is used to get consultations data from credit report.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET https://api.dynamicore.io/marketplace/apps/cc/rccficoscorepld/consultas/:folioConsulta`
 
-## Get Messages
+### Get Messages
 
 ```shell
 curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rccficoscorepld/mensajes/:folioConsulta' \
@@ -3238,11 +3192,11 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcc
 
 This endpoint is used to get messages data from consolidated credit report.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET 'https://api.dynamicore.io/marketplace/apps/cc/rccficoscorepld/mensajes/:folioConsulta`
 
-## Get Score
+### Get Score
 
 ```shell
 curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rccficoscorepld/scores/:folioConsulta' \
@@ -3273,6 +3227,6 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcc
 
 This endpoint is used to get scores data from credit report.
 
-### HTTP Request
+**HTTP Request** 
 
 `GET 'https://api.dynamicore.io/marketplace/apps/cc/rccficoscorepld/scores/:folioConsulta`
