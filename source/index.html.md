@@ -1046,7 +1046,7 @@ curl --request POST 'https://api.dynamicore.io/marketplace/apps/conekta/order/ne
     "data": [
       {
         "id": "ord_2rQPaj3neXQQmH7fp",
-        "channel": "oxxo_cash",
+        "channel": "oxxo",
         "amount": 1000,
         "operation": 184,
         "account": 326,
@@ -1075,9 +1075,9 @@ This endpoint is used to create order.
 
 **HTTP Request** 
 
-`POST https://api.dynamicore.io/marketplace/apps/conekta/order/new_order`
+`POST https://api.dynamicore.io/marketplace/apps/conekta/order`
 
-**Query Parameters**
+**Parameters**
 
 | Parameter | Required | Type   | Description                    | Example    |
 | --------- | -------- | ------ | ------------------------------ | ---------- |
@@ -1085,13 +1085,13 @@ This endpoint is used to create order.
 | operation     |     O    | Integer | Operation   | 184 | 
 | customer_info       |     Y    | Object | Object with customer information. Telephone and email is optional     | {"name": "Demo", "phone":"", "email":""} |
 | items     |     Y    | Object | Object with item information. The price per unit expressed in cents.            | { "name": "Box of Cohiba S1s", "unit_price": 1000, "quantity": 1 }         |
-| payment_method      |     O    | Object | Object with payment method information         | { "type": "oxxo_cash" }|
+| payment_method      |     O    | Object | Object with information on payment methods, the types of options are OXXO, SPEI.Note: The minimum unit price is 15 pesos using the SPEI option.         | { "type": "oxxo_cash" }|
 | config    |     O    | Object | Config              | {}          |
 
 ## Get Order
 
 ```shell
-curl --request GET 'https://api.dynamicore.io/marketplace/apps/conekta/order/get_order/:id' \
+curl --request GET 'https://api.dynamicore.io/marketplace/apps/conekta/order?order_id=order_id' \
 --header 'Authorization: {{hmacAuth}}'
 ```
 
@@ -1178,12 +1178,12 @@ This endpoint is used to get Order data.
 
 **HTTP Request** 
 
-`GET https://api.dynamicore.io/marketplace/apps/conekta/order/get_order/:id`
+`GET https://api.dynamicore.io/marketplace/apps/conekta/order?order_id=order_id`
 
 ## Get Reference Pending
 
 ```shell
-curl --request GET 'https://api.dynamicore.io/marketplace/apps/conekta/order/get_order_pending/:account' \
+curl --request GET 'https://api.dynamicore.io/marketplace/apps/conekta/order/:account?channel=channel' \
 --header 'Authorization: {{hmacAuth}}'
 ```
 
@@ -1198,7 +1198,7 @@ curl --request GET 'https://api.dynamicore.io/marketplace/apps/conekta/order/get
     "data": [
       {
         "id": "ord_2rQPaj3neXQQmH7fp",
-        "channel": "oxxo_cash",
+        "channel": "oxxo",
         "amount": 1000,
         "operation": 184,
         "account": 326,
@@ -1227,7 +1227,13 @@ This endpoint is used to get pending reference data.
 
 **HTTP Request** 
 
-`GET https://api.dynamicore.io/marketplace/apps/conekta/order/get_order_pending/:account`
+`GET https://api.dynamicore.io/marketplace/apps/conekta/order/:account?channel=channel`
+
+**Query Parameters**
+
+| Parameter | Required | Type   | Description       | Example |
+| --------- | -------- | ------ | ----------------- | ------- |
+| channel        | Y        | String | Channel type, options can be oxxo or spei  | oxxo       |
 
 # Círculo De Crédito
 
