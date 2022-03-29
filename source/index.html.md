@@ -1875,7 +1875,7 @@ This endpoint is used to get messages data from consolidated credit report.
 
 ## Reporte de Crédito Consolidado de Personas Morales
 
-### Get the Consolidated Credit Report Personas Morales
+### POST the Consolidated Credit Report Personas Morales
 
 ```shell
 curl --location --request POST 'https://api.dynamicore.io/marketplace/apps/cc/rccpm' \
@@ -3236,3 +3236,87 @@ This endpoint is used to get scores data from credit report.
 **HTTP Request** 
 
 `GET 'https://api.dynamicore.io/marketplace/apps/cc/rccficoscorepld/scores/:folioConsulta`
+
+## PLD Check Personas Físicas
+
+### POST PLD Check Personas Físicas
+
+```shell
+curl --location --request POST 'https://api.dynamicore.io/marketplace/apps/cc/pdlfp' \
+--header 'Authorization: {{hmacAuth}}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "nombres": "JUAN",
+  "apellidoPaterno": "PRUEBA",
+  "apellidoMaterno": "CUATRO"
+}'
+```
+
+> RESPONSE:
+
+```json
+{
+  "status": "success",
+  "message": {
+    "folioConsulta": "12244332",
+    "personas": [
+      {
+        "porcentaje": 100,
+        "nombre": "JUAN",
+        "apellidoPaterno": "PRUEBA",
+        "apellidoMaterno": "CUATRO",
+        "RFC": "PUCJ800101NK9",
+        "CURP": "PUCJ800104HDFRTN03",
+        "fechaNacimiento": "1980-01-04",
+        "lista": "VENC",
+        "estatus": "1 AÑOS",
+        "dependencia": "SECRETARIA DE GOBERNACION",
+        "puesto": "SECRETARIO",
+        "dispocisionesId": "1111",
+        "CURPOk": 1,
+        "nombreCompleto": "JAVIER PRUEBA CUATRO",
+        "apellidos": "PRUEBA CUATRO",
+        "entidad": "CIUDAD DE MÉXICO",
+        "sexo": "MASCULINO",
+        "area": "OFICINA DEL C. SECRETARIO",
+        "tipoPersona": "PF"
+      },
+      {
+        "porcentaje": 95,
+        "nombre": "JUAN",
+        "apellidoPaterno": "PRUEBA",
+        "apellidoMaterno": "CUATRO",
+        "RFC": "DARA691207T56",
+        "CURP": "DARA691207HCMLNS07",
+        "fechaNacimiento": "1969-12-07",
+        "lista": "VENC",
+        "estatus": "11 AÑOS",
+        "dependencia": "CANDIDATOS",
+        "puesto": "DIPUTADO PROPIETARIO",
+        "dispocisionesId": "1111",
+        "CURPOk": 1,
+        "nombreCompleto": "JAVIER PRUEBA CUATRO",
+        "apellidos": "PRUEBA CUATRO",
+        "entidad": "NUEVO LEON",
+        "sexo": "MASCULINO",
+        "area": "CANDIDATOS 2003-2006",
+        "tipoPersona": "PF"
+      }
+    ]
+  }
+}
+```
+
+This endpoint is used to get the consolidated credit report data
+
+**HTTP Request** 
+
+`POST https://api.dynamicore.io/marketplace/apps/cc/pdlfp`
+
+**Parameters**
+
+| Parameter      | Required | Type   | Description         | Example          |
+| -------------- | -------- | ------ | ------------------- | ---------------- |
+| nombres             | Y        | String | Full name of the person. | JUAN |
+| apellidoPaterno           | Y        | String | Paternal surname of the person. | PRUEBA |
+| apellidoMaterno           | Y        | String | Maternal surname of the person. | CUATRO |
