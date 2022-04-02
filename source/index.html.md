@@ -1239,7 +1239,7 @@ This endpoint is used to get pending reference data.
 
 ## Reporte de crédito
 
-### Get the Credit Report
+### POST the Credit Report
 
 ```shell
 curl --location --request POST 'https://api.dynamicore.io/marketplace/apps/cc/rc' \
@@ -1379,7 +1379,7 @@ This endpoint is used to get credit data from credit report.
 
 **HTTP Request** 
 
-`GET 'https://api.dynamicore.io/marketplace/apps/cc/rc/creditos/:folioConsulta`
+`GET https://api.dynamicore.io/marketplace/apps/cc/rc/creditos/:folioConsulta`
 
 ### Get Addresses
 
@@ -1405,32 +1405,6 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rc/
         "tipoAsentamiento": "0",
         "fechaResidencia": "31-12-2019",
         "fechaRegistroDomicilio": "31-12-2019",
-        "tipoAltaDomicilio": "1"
-      },
-      {
-        "CP": "11230",
-        "direccion": "INSURGENTES SUR 1001",
-        "coloniaPoblacion": "INSURGENTES SUR",
-        "ciudad": "CIUDAD DE MEXICO",
-        "estado": "DF",
-        "delegacionMunicipio": "CIUDAD DE MEXICO",
-        "idDomicilio": "385699286",
-        "tipoDomicilio": "C",
-        "fechaResidencia": "27-08-2019",
-        "fechaRegistroDomicilio": "27-08-2019",
-        "tipoAltaDomicilio": "1"
-      },
-      {
-        "CP": "05210",
-        "direccion": "CALLE DEL CENTENO 14",
-        "coloniaPoblacion": "LAS PALMAS",
-        "ciudad": "MEXICO",
-        "estado": "DF",
-        "delegacionMunicipio": "MEXICO",
-        "idDomicilio": "385699285",
-        "tipoDomicilio": "C",
-        "fechaResidencia": "27-08-2019",
-        "fechaRegistroDomicilio": "27-08-2019",
         "tipoAltaDomicilio": "1"
       }
     ]
@@ -1508,14 +1482,6 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rc/
         "importeCredito": 1,
         "claveUnidadMonetaria": "MX",
         "tipoResponsabilidad": "I"
-      },
-      {
-        "fechaConsulta": "03-02-2020",
-        "nombreOtorgante": "CC MICROFINANZAS",
-        "tipoCredito": "F",
-        "importeCredito": 1,
-        "claveUnidadMonetaria": "MX",
-        "tipoResponsabilidad": "I"
       }
     ]
   }
@@ -1555,11 +1521,11 @@ This endpoint is used to get messages data from credit report.
 
 **HTTP Request** 
 
-`GET 'https://api.dynamicore.io/marketplace/apps/cc/rc/mensajes/:folioConsulta`
+`GET https://api.dynamicore.io/marketplace/apps/cc/rc/mensajes/:folioConsulta`
 
 ## Reporte de Crédito Consolidado
 
-### Get the Consolidated Credit Report
+### POST the Consolidated Credit Report
 
 ```shell
 curl --location --request POST 'https://api.dynamicore.io/marketplace/apps/cc/rcc' \
@@ -1642,35 +1608,6 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcc
   "message": {
     "creditos": [
       {
-        "fechaActualizacion": "2020-05-31",
-        "registroImpugnado": "0",
-        "nombreOtorgante": "REPORTE DE CREDITO ESPECIAL",
-        "cuentaActual": "1234567890136",
-        "tipoResponsabilidad": "I",
-        "tipoCuenta": "F",
-        "tipoCredito": "CC",
-        "claveUnidadMonetaria": "UD",
-        "valorActivoValuacion": "1098",
-        "numeroPagos": "40",
-        "frecuenciaPagos": "M",
-        "montoPagar": "10",
-        "fechaAperturaCuenta": "2017-01-28",
-        "fechaUltimoPago": "2020-05-21",
-        "fechaUltimaCompra": "2020-05-03",
-        "fechaReporte": "2020-05-31",
-        "creditoMaximo": "160000",
-        "saldoActual": "50",
-        "limiteCredito": "200000",
-        "saldoVencido": "35",
-        "numeroPagosVencidos": "3",
-        "pagoActual": "01",
-        "historicoPagos": "01 V V V V V V V V V V V V V0201 V V",
-        "totalPagosReportados": "0",
-        "peorAtraso": "1",
-        "fechaPeorAtraso": "2020-05-31",
-        "saldoVencidoPeorAtraso": "35"
-      },
-      {
         "fechaActualizacion": "2018-09-14",
         "registroImpugnado": "0",
         "nombreOtorgante": "BANCO / BC",
@@ -1711,7 +1648,7 @@ This endpoint is used to get credit data from consolidated credit report.
 
 **HTTP Request** 
 
-`GET 'https://api.dynamicore.io/marketplace/apps/cc/rcc/creditos/:folioConsulta`
+`GET https://api.dynamicore.io/marketplace/apps/cc/rcc/creditos/:folioConsulta`
 
 ### Get Addresses
 
@@ -1736,19 +1673,6 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcc
         "CP": "07210",
         "fechaResidencia": "2020-06-10",
         "fechaRegistroDomicilio": "2020-06-10"
-      },
-      {
-        "direccion": "PASADISO ENCONTRADO 168",
-        "coloniaPoblacion": "CHALMA DE GUADALUPE",
-        "delegacionMunicipio": "GUSTAVO A MADERO",
-        "ciudad": "CIUDAD DE MXICO",
-        "estado": "CDMX",
-        "CP": "07210",
-        "fechaResidencia": "2020-06-02",
-        "numeroTelefono": "55664420",
-        "tipoDomicilio": "C",
-        "tipoAsentamiento": "0",
-        "fechaRegistroDomicilio": "2020-06-02"
       }
     ]
   }
@@ -1825,13 +1749,6 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcc
         "tipoCredito": "M",
         "claveUnidadMonetaria": "MX",
         "importeCredito": "1"
-      },
-      {
-        "fechaConsulta": "2018-08-24",
-        "nombreOtorgante": "CONSUMIDOR FINAL / BC",
-        "tipoCredito": "NC",
-        "importeCredito": "0",
-        "tipoResponsabilidad": "I"
       }
     ]
   }
@@ -1871,7 +1788,7 @@ This endpoint is used to get messages data from consolidated credit report.
 
 **HTTP Request** 
 
-`GET 'https://api.dynamicore.io/marketplace/apps/cc/rcc/mensajes/:folioConsulta`
+`GET https://api.dynamicore.io/marketplace/apps/cc/rcc/mensajes/:folioConsulta`
 
 ## Reporte de Crédito Consolidado de Personas Morales
 
@@ -1972,27 +1889,6 @@ curl --location --request POST 'https://api.dynamicore.io/marketplace/apps/cc/rc
     },
     "declarativas": null,
     "accionistas": [
-      {
-        "RFC": "PUUJ8001018E0",
-        "CURP": "PUUJ800101HDFRNN04",
-        "nombre": "JUAN",
-        "segundoNombre": null,
-        "apellidoPaterno": "PRUEBA",
-        "apellidoMaterno": "UNO",
-        "domicilio": {
-          "direccion": "INSURGENTES SUR 1001",
-          "coloniaPoblacion": "INSURGENTES SUR",
-          "delegacionMunicipio": "CUAUHTEMOC",
-          "ciudad": "CIUDAD DE MEXICO",
-          "estado": "DF",
-          "CP": "11230",
-          "pais": "MX",
-          "telefono": "5555555555",
-          "extension": "555555",
-          "fax": "5555555555"
-        },
-        "porcentaje": 50
-      },
       {
         "RFC": "PUDJ8001026I5",
         "CURP": "PUDJ800102HDFRSN09",
@@ -2108,7 +2004,7 @@ This endpoint is used to get the consolidated credit report data
 
 ## Reporte de Crédito con FICO® Score
 
-### Get the Credit Report with FICO Score
+### POST the Credit Report with FICO Score
 
 ```shell
 curl --location --request POST 'https://api.dynamicore.io/marketplace/apps/cc/rcficoscore' \
@@ -2259,7 +2155,7 @@ This endpoint is used to get credit data from credit report.
 
 **HTTP Request** 
 
-`GET 'https://api.dynamicore.io/marketplace/apps/cc/rcficoscore/creditos/:folioConsulta`
+`GET https://api.dynamicore.io/marketplace/apps/cc/rcficoscore/creditos/:folioConsulta`
 
 ### Get Addresses
 
@@ -2285,32 +2181,6 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcf
         "tipoAsentamiento": "0",
         "fechaResidencia": "2019-12-31",
         "fechaRegistroDomicilio": "2019-12-31",
-        "tipoAltaDomicilio": "1"
-      },
-      {
-        "CP": "11230",
-        "direccion": "INSURGENTES SUR 1001",
-        "coloniaPoblacion": "INSURGENTES SUR",
-        "ciudad": "CIUDAD DE MEXICO",
-        "estado": "CDMX",
-        "delegacionMunicipio": "CIUDAD DE MEXICO",
-        "idDomicilio": "385699286",
-        "tipoDomicilio": "C",
-        "fechaResidencia": "2019-08-27",
-        "fechaRegistroDomicilio": "2019-08-27",
-        "tipoAltaDomicilio": "1"
-      },
-      {
-        "CP": "05210",
-        "direccion": "CALLE DEL CENTENO 14",
-        "coloniaPoblacion": "LAS PALMAS",
-        "ciudad": "MEXICO",
-        "estado": "CDMX",
-        "delegacionMunicipio": "MEXICO",
-        "idDomicilio": "385699285",
-        "tipoDomicilio": "C",
-        "fechaResidencia": "2019-08-27",
-        "fechaRegistroDomicilio": "2019-08-27",
         "tipoAltaDomicilio": "1"
       }
     ]
@@ -2388,22 +2258,6 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcf
         "importeCredito": 1,
         "claveUnidadMonetaria": "MX",
         "tipoResponsabilidad": "I"
-      },
-      {
-        "fechaConsulta": "03-02-2020",
-        "nombreOtorgante": "CC MICROFINANZAS",
-        "tipoCredito": "F",
-        "importeCredito": 1,
-        "claveUnidadMonetaria": "MX",
-        "tipoResponsabilidad": "I"
-      },
-      {
-        "fechaConsulta": "23-04-2019",
-        "nombreOtorgante": "CC MICROFINANZAS",
-        "tipoCredito": "F",
-        "importeCredito": 1,
-        "claveUnidadMonetaria": "MX",
-        "tipoResponsabilidad": "I"
       }
     ]
   }
@@ -2443,7 +2297,7 @@ This endpoint is used to get messages data from credit report.
 
 **HTTP Request** 
 
-`GET 'https://api.dynamicore.io/marketplace/apps/cc/rcficoscore/mensajes/:folioConsulta`
+`GET https://api.dynamicore.io/marketplace/apps/cc/rcficoscore/mensajes/:folioConsulta`
 
 ### Get Score
 
@@ -2478,11 +2332,11 @@ This endpoint is used to get scores data from credit report.
 
 **HTTP Request** 
 
-`GET 'https://api.dynamicore.io/marketplace/apps/cc/rcficoscore/scores/:folioConsulta`
+`GET https://api.dynamicore.io/marketplace/apps/cc/rcficoscore/scores/:folioConsulta`
 
 ## Reporte de Crédito Consolidado + FICO® Score
 
-### Get the Consolidated Credit Report + FICO Score
+### POST the Consolidated Credit Report + FICO Score
 
 ```shell
 curl --location --request POST 'https://api.dynamicore.io/marketplace/apps/cc/rccficoscore' \
@@ -2576,35 +2430,6 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcc
   "message": {
     "creditos": [
       {
-        "fechaActualizacion": "2020-05-31",
-        "registroImpugnado": "0",
-        "nombreOtorgante": "REPORTE DE CREDITO ESPECIAL",
-        "cuentaActual": "1234567890135",
-        "tipoResponsabilidad": "I",
-        "tipoCuenta": "F",
-        "tipoCredito": "CC",
-        "claveUnidadMonetaria": "UD",
-        "valorActivoValuacion": "1098",
-        "numeroPagos": "40",
-        "frecuenciaPagos": "M",
-        "montoPagar": "20",
-        "fechaAperturaCuenta": "2017-01-28",
-        "fechaUltimoPago": "2020-04-21",
-        "fechaUltimaCompra": "2020-04-03",
-        "fechaReporte": "2020-05-31",
-        "creditoMaximo": "160000",
-        "saldoActual": "100",
-        "limiteCredito": "200000",
-        "saldoVencido": "70",
-        "numeroPagosVencidos": "4",
-        "pagoActual": "02",
-        "historicoPagos": "0201 V V V V V V V V V V V V V0201 V V",
-        "totalPagosReportados": "0",
-        "peorAtraso": "2",
-        "fechaPeorAtraso": "2020-05-31",
-        "saldoVencidoPeorAtraso": "70"
-      },
-      {
         "fechaActualizacion": "2018-09-14",
         "registroImpugnado": "0",
         "nombreOtorgante": "BANCO / BC",
@@ -2645,7 +2470,7 @@ This endpoint is used to get credit data from credit report.
 
 **HTTP Request** 
 
-`GET 'https://api.dynamicore.io/marketplace/apps/cc/rccficoscore/creditos/:folioConsulta`
+`GET https://api.dynamicore.io/marketplace/apps/cc/rccficoscore/creditos/:folioConsulta`
 
 ### Get Addresses
 
@@ -2670,19 +2495,6 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcc
         "CP": "07730",
         "fechaResidencia": "2020-06-10",
         "fechaRegistroDomicilio": "2020-06-10"
-      },
-      {
-        "direccion": "PASADISO ENCONTRADO 58",
-        "coloniaPoblacion": "MONTEVIDEO",
-        "delegacionMunicipio": "GUSTAVO A MADERO",
-        "ciudad": "CIUDAD DE MXICO",
-        "estado": "CDMX",
-        "CP": "07730",
-        "fechaResidencia": "2020-06-02",
-        "numeroTelefono": "55664420",
-        "tipoDomicilio": "C",
-        "tipoAsentamiento": "0",
-        "fechaRegistroDomicilio": "2020-06-02"
       }
     ]
   }
@@ -2759,20 +2571,6 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcc
         "tipoCredito": "M",
         "claveUnidadMonetaria": "MX",
         "importeCredito": "1"
-      },
-      {
-        "fechaConsulta": "2018-08-24",
-        "nombreOtorgante": "CONSUMIDOR FINAL / BC",
-        "tipoCredito": "NC",
-        "importeCredito": "0",
-        "tipoResponsabilidad": "I"
-      },
-      {
-        "fechaConsulta": "2018-06-13",
-        "nombreOtorgante": "BANCO / BC",
-        "tipoCredito": "NC",
-        "importeCredito": "0",
-        "tipoResponsabilidad": "I"
       }
     ]
   }
@@ -2816,7 +2614,7 @@ This endpoint is used to get messages data from consolidated credit report.
 
 **HTTP Request** 
 
-`GET 'https://api.dynamicore.io/marketplace/apps/cc/rccficoscore/mensajes/:folioConsulta`
+`GET https://api.dynamicore.io/marketplace/apps/cc/rccficoscore/mensajes/:folioConsulta`
 
 ### Get Score
 
@@ -2851,11 +2649,11 @@ This endpoint is used to get scores data from credit report.
 
 **HTTP Request** 
 
-`GET 'https://api.dynamicore.io/marketplace/apps/cc/rccficoscore/scores/:folioConsulta`
+`GET https://api.dynamicore.io/marketplace/apps/cc/rccficoscore/scores/:folioConsulta`
 
 ## Reporte de Crédito Consolidado + FICO® Score y PLD Check®
 
-### Get the Consolidated Credit Report + FICO Score and PLD Check
+### POST the Consolidated Credit Report + FICO Score and PLD Check
 
 ```shell
 curl --location --request POST 'https://api.dynamicore.io/marketplace/apps/cc/rccficoscorepld' \
@@ -2960,35 +2758,6 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcc
   "message": {
     "creditos": [
       {
-        "fechaActualizacion": "2020-05-31",
-        "registroImpugnado": "0",
-        "nombreOtorgante": "REPORTE DE CREDITO ESPECIAL",
-        "cuentaActual": "1234567890136",
-        "tipoResponsabilidad": "I",
-        "tipoCuenta": "F",
-        "tipoCredito": "CC",
-        "claveUnidadMonetaria": "UD",
-        "valorActivoValuacion": "1098",
-        "numeroPagos": "40",
-        "frecuenciaPagos": "M",
-        "montoPagar": "10",
-        "fechaAperturaCuenta": "2017-01-28",
-        "fechaUltimoPago": "2020-05-21",
-        "fechaUltimaCompra": "2020-05-03",
-        "fechaReporte": "2020-05-31",
-        "creditoMaximo": "160000",
-        "saldoActual": "50",
-        "limiteCredito": "200000",
-        "saldoVencido": "35",
-        "numeroPagosVencidos": "3",
-        "pagoActual": "01",
-        "historicoPagos": "01 V V V V V V V V V V V V V0201 V V",
-        "totalPagosReportados": "0",
-        "peorAtraso": "1",
-        "fechaPeorAtraso": "2020-05-31",
-        "saldoVencidoPeorAtraso": "35"
-      },
-      {
         "fechaActualizacion": "2018-09-14",
         "registroImpugnado": "0",
         "nombreOtorgante": "BANCO / BC",
@@ -3029,7 +2798,7 @@ This endpoint is used to get credit data from credit report.
 
 **HTTP Request** 
 
-`GET 'https://api.dynamicore.io/marketplace/apps/cc/rccficoscorepld/creditos/:folioConsulta`
+`GET https://api.dynamicore.io/marketplace/apps/cc/rccficoscorepld/creditos/:folioConsulta`
 
 ### Get Addresses
 
@@ -3054,19 +2823,6 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcc
         "CP": "07210",
         "fechaResidencia": "2020-06-10",
         "fechaRegistroDomicilio": "2020-06-10"
-      },
-      {
-        "direccion": "PASADISO ENCONTRADO 168",
-        "coloniaPoblacion": "CHALMA DE GUADALUPE",
-        "delegacionMunicipio": "GUSTAVO A MADERO",
-        "ciudad": "CIUDAD DE MXICO",
-        "estado": "CDMX",
-        "CP": "07210",
-        "fechaResidencia": "2020-06-02",
-        "numeroTelefono": "55664420",
-        "tipoDomicilio": "C",
-        "tipoAsentamiento": "0",
-        "fechaRegistroDomicilio": "2020-06-02"
       }
     ]
   }
@@ -3143,20 +2899,6 @@ curl --location --request GET 'https://api.dynamicore.io/marketplace/apps/cc/rcc
         "tipoCredito": "M",
         "claveUnidadMonetaria": "MX",
         "importeCredito": "1"
-      },
-      {
-        "fechaConsulta": "2018-08-24",
-        "nombreOtorgante": "CONSUMIDOR FINAL / BC",
-        "tipoCredito": "NC",
-        "importeCredito": "0",
-        "tipoResponsabilidad": "I"
-      },
-      {
-        "fechaConsulta": "2018-06-13",
-        "nombreOtorgante": "BANCO / BC",
-        "tipoCredito": "NC",
-        "importeCredito": "0",
-        "tipoResponsabilidad": "I"
       }
     ]
   }
@@ -3200,7 +2942,7 @@ This endpoint is used to get messages data from consolidated credit report.
 
 **HTTP Request** 
 
-`GET 'https://api.dynamicore.io/marketplace/apps/cc/rccficoscorepld/mensajes/:folioConsulta`
+`GET https://api.dynamicore.io/marketplace/apps/cc/rccficoscorepld/mensajes/:folioConsulta`
 
 ### Get Score
 
@@ -3235,11 +2977,9 @@ This endpoint is used to get scores data from credit report.
 
 **HTTP Request** 
 
-`GET 'https://api.dynamicore.io/marketplace/apps/cc/rccficoscorepld/scores/:folioConsulta`
+`GET https://api.dynamicore.io/marketplace/apps/cc/rccficoscorepld/scores/:folioConsulta`
 
 ## PLD Check Personas Físicas
-
-### POST PLD Check Personas Físicas
 
 ```shell
 curl --location --request POST 'https://api.dynamicore.io/marketplace/apps/cc/pdlfp' \
@@ -3280,34 +3020,13 @@ curl --location --request POST 'https://api.dynamicore.io/marketplace/apps/cc/pd
         "sexo": "MASCULINO",
         "area": "OFICINA DEL C. SECRETARIO",
         "tipoPersona": "PF"
-      },
-      {
-        "porcentaje": 95,
-        "nombre": "JUAN",
-        "apellidoPaterno": "PRUEBA",
-        "apellidoMaterno": "CUATRO",
-        "RFC": "DARA691207T56",
-        "CURP": "DARA691207HCMLNS07",
-        "fechaNacimiento": "1969-12-07",
-        "lista": "VENC",
-        "estatus": "11 AÑOS",
-        "dependencia": "CANDIDATOS",
-        "puesto": "DIPUTADO PROPIETARIO",
-        "dispocisionesId": "1111",
-        "CURPOk": 1,
-        "nombreCompleto": "JAVIER PRUEBA CUATRO",
-        "apellidos": "PRUEBA CUATRO",
-        "entidad": "NUEVO LEON",
-        "sexo": "MASCULINO",
-        "area": "CANDIDATOS 2003-2006",
-        "tipoPersona": "PF"
       }
     ]
   }
 }
 ```
 
-This endpoint is used to get the consolidated credit report data
+This endpoint is used to get data the PLD Check Personas Físicas
 
 **HTTP Request** 
 
@@ -3320,3 +3039,318 @@ This endpoint is used to get the consolidated credit report data
 | nombres             | Y        | String | Full name of the person. | JUAN |
 | apellidoPaterno           | Y        | String | Paternal surname of the person. | PRUEBA |
 | apellidoMaterno           | Y        | String | Maternal surname of the person. | CUATRO |
+
+## PLD Check Personas Morales
+
+```shell
+curl --location --request POST 'https://api.dynamicore.io/marketplace/apps/cc/pldpm' \
+--header 'Authorization: {{hmacAuth}}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "razonSocial": "EMPRESA SA DE CV"
+}'
+```
+
+> RESPONSE:
+
+```json
+{
+  "status": "success",
+  "message": {
+    "personas": [
+      {
+        "porcentaje": 98,
+        "rfc": "SAZR010101Q23",
+        "fechaIncorporacion": "2001-01-01",
+        "lista": "SAT69",
+        "estatus": "ACTIVO",
+        "razonSocial": "MORAL",
+        "fechaCargoInicio": "2001-01-01",
+        "fechaCargoFin": "2010-01-01",
+        "tipoPersona": "PM"
+      }
+    ]
+  }
+}
+```
+
+This endpoint is used to get data the PLD Check Personas Morales.
+
+**HTTP Request** 
+
+`POST https://api.dynamicore.io/marketplace/apps/cc/pldpm`
+
+**Parameters**
+
+| Parameter      | Required | Type   | Description         | Example          |
+| -------------- | -------- | ------ | ------------------- | ---------------- |
+| razonSocial    | Y        | String | Full name.          | EMPRESA SA DE CV |
+
+## FICO® Score
+
+```shell
+curl --location --request POST 'https://api.dynamicore.io/marketplace/apps/cc/ficoscore' \
+--header 'Authorization: {{hmacAuth}}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "folio": "123456",
+  "persona":{
+    "nombres": "JUAN",
+    "apellidoPaterno": "SESENTAYDOS",
+    "apellidoMaterno": "PRUEBA",
+    "fechaNacimiento": "1965-08-09",
+    "RFC": "SEPJ650809JG1",
+    "domicilio": {
+    "direccion": "PASADISO ENCONTRADO 58",
+    "coloniaPoblacion": "MONTEVIDEO",
+    "delegacionMunicipio": "GUSTAVO A MADERO",
+    "ciudad": "CIUDAD DE MÉXICO",
+    "estado": "CDMX",
+    "CP": "07730"
+    }
+  }
+}'
+```
+
+> RESPONSE:
+
+```json
+{
+  "status": "success",
+  "message": {
+    "folioConsulta": "19698610",
+    "folio": "123456",
+    "score": {
+      "nombreScore": "FICO",
+      "valor": 720,
+      "razones": [
+        "D2",
+        "P9",
+        "K0",
+        "E0"
+      ]
+    }
+  }
+}
+```
+
+This endpoint is used to get data the FICO® Score.
+
+**HTTP Request** 
+
+`POST https://api.dynamicore.io/marketplace/apps/cc/ficoscore`
+
+**Parameters**
+
+| Parameter      | Required | Type   | Description         | Example          |
+| -------------- | -------- | ------ | ------------------- | ---------------- |
+| folio    | Y        | String | Folio of the query in relation to the grantor.          | 123456 |
+| persona    | Y        | Object | General data of the person.          | {"nombres": "JUAN","apellidoPaterno": "SESENTAYDOS","apellidoMaterno": "PRUEBA","fechaNacimiento": "1965-08-09","RFC": "SEPJ650809JG1","domicilio": {"direccion": "PASADISO ENCONTRADO 58","coloniaPoblacion": "MONTEVIDEO","delegacionMunicipio": "GUSTAVO A MADERO","ciudad": "CIUDAD DE MÉXICO","estado": "CDMX","CP": "07730"}} |
+
+## FinTech Score
+
+```shell
+curl --location --request POST 'https://api.dynamicore.io/marketplace/apps/cc/fintechscore' \
+--header 'Authorization: {{hmacAuth}}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "folioOtorgante": "20210304",
+  "persona": {
+    "apellidoPaterno": "PRUEBA",
+    "apellidoMaterno": "RUIZ",
+    "primerNombre": "JUAN",
+    "segundoNombre": "PABLO",
+    "fechaNacimiento": "1974-10-28",
+    "RFC": "PURJ741028PL2",
+    "domicilio": {
+      "direccion": "INGENIEROS MILITARES NO. 65",
+      "coloniaPoblacion": "LOMAS DE SOTELO",
+      "delegacionMunicipio": "MIGUEL HIDALGO",
+      "ciudad": "CIUDAD DE MEXICO",
+      "estado": "CDMX",
+      "CP": "11200",
+      "pais": "MX"
+    }
+  }
+}'
+```
+
+> RESPONSE:
+
+```json
+{
+  "status": "success",
+  "message": {
+    "folioConsulta": "12345681",
+    "folioOtorgante": "20210304",
+    "score": {
+      "valor": 404
+    }
+  }
+}
+```
+
+This endpoint is used to get data the FinTech Score.
+
+**HTTP Request** 
+
+`POST https://api.dynamicore.io/marketplace/apps/cc/fintechscore`
+
+**Parameters**
+
+| Parameter      | Required | Type   | Description         | Example          |
+| -------------- | -------- | ------ | ------------------- | ---------------- |
+| folio    | Y        | String | Folio of the query in relation to the grantor.          | 123456 |
+| persona    | Y        | Object | General data of the person.          | {"apellidoPaterno": "PRUEBA","apellidoMaterno": "RUIZ","primerNombre": "JUAN","segundoNombre": "PABLO","fechaNacimiento": "1974-10-28","RFC": "PURJ741028PL2","domicilio": {"direccion": "INGENIEROS MILITARES NO. 65","coloniaPoblacion": "LOMAS DE SOTELO","delegacionMunicipio": "MIGUEL HIDALGO","ciudad": "CIUDAD DE MEXICO","estado": "CDMX","CP": "11200","pais": "MX"}} |
+
+## Financial Inclusion Score
+
+```shell
+curl --location --request POST 'https://api.dynamicore.io/marketplace/apps/cc/fis' \
+--header 'Authorization: {{hmacAuth}}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "primerNombre": "JUAN",
+  "apellidoPaterno": "LOPEZ",
+  "apellidoMaterno": "FUENTES",
+  "fechaNacimiento": "23-03-1978",
+  "nacionalidad": "MX",
+  "RFC": "RFCC870909765",
+  "domicilio": {
+    "direccion": "FLORES 23",
+    "coloniaPoblacion": "JARDINES",
+    "ciudad": "MEXICO",
+    "estado": "JAL",
+    "delegacionMunicipio": "VALLE DE CHALCO",
+    "CP": "65432",
+    "numeroTelefono": "5409098765"
+  }
+}'
+```
+
+> RESPONSE:
+
+```json
+{
+  "status": "success",
+  "message": {
+    "folioConsulta": "7544569",
+    "datosGenerales": {
+      "nombres": "JUAN",
+      "apellidoPaterno": "LOPEZ",
+      "apellidoMaterno": "FUENTES",
+      "fechaNacimiento": "23-03-1978",
+      "RFC": "RFCC870909765",
+      "CURP": ""
+    },
+    "domicilio": {
+      "direccion": "HIDALGO 32",
+      "coloniaPoblacion": "CENTRO",
+      "delegacionMunicipio": "LA BARCA",
+      "ciudad": "BENITO JUAREZ",
+      "estado": "JAL",
+      "CP": "47917",
+      "fechaResidencia": "2018-12-21",
+      "numeroTelefono": "5512345678",
+      "tipoDomicilio": "C",
+      "tipoAsentamiento": "28",
+      "fechaRegistroDomicilio": "2018-12-20",
+      "tipoAltaDomicilio": 0,
+      "numeroOtorgantesCarga": 0,
+      "numeroOtorgantesConsulta": 0,
+      "idDomicilio": "316110890"
+    },
+    "scoreNoHit": {
+      "valor": 20,
+      "codigo": "E3"
+    }
+  }
+}
+```
+
+This endpoint is used to get data the Financial Inclusion Score.
+
+**HTTP Request** 
+
+`POST https://api.dynamicore.io/marketplace/apps/cc/fis`
+
+**Parameters**
+
+| Parameter      | Required | Type   | Description         | Example          |
+| -------------- | -------- | ------ | ------------------- | ---------------- |
+| primerNombre             | Y        | String | First name of the person.        | JUAN               |
+| apellidoPaterno           | Y        | String | Paternal surname of the person. No abbreviations or initials.                | SESENTAYDOS           |
+| apellidoMaterno          | Y        | String | Mother's surname of the person.               | PRUEBA    |
+| fechaNacimiento    | Y        | String |    Date of birth of the person, in the specified format (by default yyyy-MM-dd)    |  1965-08-09    |
+| RFC     | Y        | String | RFC with homoclave of the person  | SEPJ650809JG1 |
+| nacionalidad   | Y        | String | Number of days the document expires  | MX |
+| domicilio    | Y        | Object | Data of the address of the person to consult.  | { "direccion": "PASADISO ENCONTRADO 58", "coloniaPoblacion": "MONTEVIDEO", "delegacionMunicipio": "GUSTAVO A MADERO", "ciudad": "CIUDAD DE MÉXICO", "estado": "CDMX", "CP": "07730" } |
+
+## Auditoria de firmas
+
+```shell
+curl --location --request POST 'https://api.dynamicore.io/marketplace/apps/cc/authnip' \
+--header 'Authorization: {{hmacAuth}}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "folioCDC": 763211111,
+  "fechaConsulta": "2021/04/15",
+  "horaConsulta": "10/12/35",
+  "tipoConsulta": "PF",
+  "usuario": "NGA9915CC5",
+  "fechaAprobacionConsulta": "2021/04/15",
+  "horaAprobacionConsulta": "10/12/35",
+  "ingresoNuevamenteNIP": true,
+  "respuestaLeyendaAutorizacion": true,
+  "aceptaTerminosCondiciones": true,
+  "numeroFirma": "1234F",
+  "persona": {
+    "primerNombre": "MARGARITO",
+    "segundoNombre": "FLORENCIO",
+    "apellidoPaterno": "LOPEZ",
+    "apellidoMaterno": "CALIXTO",
+    "apellidoAdicional": "PEREZ",
+    "RFC": "LOCM840804",
+    "domicilio": {
+      "calleNumero": "LOPE DE VEGA 39",
+      "colonia": "SAN RAFAEL",
+      "ciudad": "CDMX",
+      "estado": "AGS"
+    }
+  }
+}'
+```
+
+> RESPONSE:
+
+```json
+{
+  "status": "success",
+  "message": {
+    "folioCDC": 763211111
+  }
+}
+```
+
+This endpoint is used to get data the Financial Inclusion Score.
+
+**HTTP Request** 
+
+`POST https://api.dynamicore.io/marketplace/apps/cc/authnip`
+
+**Parameters**
+
+| Parameter      | Required | Type   | Description         | Example          |
+| -------------- | -------- | ------ | ------------------- | ---------------- |
+| folioCDC    | Y        | Integer | Consultation folio number generated by Circulo de Crédito at the end of the consultation.          | 763211111 |
+| fechaConsulta    | Y        | String | Date on which the consultation was made in Circulo de Crédito.        | 2021/04/15 |
+| horaConsulta    | Y        | String | It refers to the time in which the consultation was made in Circulo de Crédito. (24 hour format).          | 10/12/35 |
+| tipoConsulta    | Y        | String | Folio of the query in relation to the grantor. [ PF, PM ]      | PF |
+| usuario    | Y        | String | 	Catalog type person          | NGA9915CC5 |
+| fechaAprobacionConsulta    | Y        | String | It refers to the date on which the client approves being consulted in Circulo de Crédito.          | 2021/04/15 |
+| horaAprobacionConsulta    | Y        | String | It refers to the time in which the client approves being consulted in Circulo de Crédito. (24 hour format).          | 10/12/35 |
+| ingresoNuevamenteNIP    | Y        | boolean | It refers to whether the client confirmed the PIN for the approval of the consultation in Circulo de Crédito.          | true |
+| respuestaLeyendaAutorizacion    | Y        | boolean | It refers to the answer that the client gives to the query authorization legend in Circulo de Crédito.          | true |
+| aceptaTerminosCondiciones    | Y        | boolean | Acceptance that proves the legal relationship before the consultation.          | true |
+| numeroFirma    | Y        | String | It refers to the nip or signature number.          | 1234F |
+| persona    | Y        | Object | General data of the person.          | {"primerNombre": "MARGARITO","segundoNombre": "FLORENCIO","apellidoPaterno": "LOPEZ","apellidoMaterno": "CALIXTO","apellidoAdicional": "PEREZ","RFC": "LOCM840804","domicilio": {"calleNumero": "LOPE DE VEGA 39","colonia": "SAN RAFAEL","ciudad": "CDMX","estado": "AGS"}} |
